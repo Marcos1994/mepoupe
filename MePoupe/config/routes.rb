@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'report/index'
+
 	get 'home/index'
 
 	resources :goals
