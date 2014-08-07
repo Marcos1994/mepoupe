@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140807143702) do
+ActiveRecord::Schema.define(version: 20140807172655) do
 
   create_table "categories", force: true do |t|
     t.string   "titulo"
@@ -19,7 +19,10 @@ ActiveRecord::Schema.define(version: 20140807143702) do
     t.text     "descricao"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
+
+  add_index "categories", ["user_id"], name: "index_categories_on_user_id"
 
   create_table "entries", force: true do |t|
     t.string   "titulo"
@@ -28,7 +31,10 @@ ActiveRecord::Schema.define(version: 20140807143702) do
     t.integer  "periodicidade"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "category_id"
   end
+
+  add_index "entries", ["category_id"], name: "index_entries_on_category_id"
 
   create_table "goals", force: true do |t|
     t.string   "titulo"
@@ -38,7 +44,10 @@ ActiveRecord::Schema.define(version: 20140807143702) do
     t.integer  "estado"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
+
+  add_index "goals", ["user_id"], name: "index_goals_on_user_id"
 
   create_table "parts", force: true do |t|
     t.float    "valor"
@@ -46,7 +55,10 @@ ActiveRecord::Schema.define(version: 20140807143702) do
     t.integer  "confirmacao"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "entry_id"
   end
+
+  add_index "parts", ["entry_id"], name: "index_parts_on_entry_id"
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
