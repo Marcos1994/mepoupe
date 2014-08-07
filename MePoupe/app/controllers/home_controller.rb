@@ -1,11 +1,11 @@
 class HomeController < ApplicationController
 	def index
-		#if (current_user.categories.length < 1)	#O usuário deve ter pelo menos 1 categoria
-		#	category_params = { "titulo" => "Geral", "cor" => "#cccccc", "descricao" => "Essa e a categoria geral do sistema." }
-		#	@category = Category.new(category_params)
-		#	@category.user = current_user
-		#	@category.save
-		#end
+		if (current_user.categories.length < 1)	#O usuário deve ter pelo menos 1 categoria
+			category_params = { "titulo" => "Geral", "cor" => "#cccccc", "descricao" => "Essa e a categoria geral do sistema." }
+			@category = Category.new(category_params)
+			@category.user = current_user
+			@category.save
+		end
 	end
 	
 	def resetar
