@@ -1,24 +1,20 @@
-<h1>Listing categories</h1>
+<h1>Lista de Categorias</h1>
 
-<table>
+<table id="tabelaCategoria" cellspacing="0px">
   <thead>
     <tr>
-      <th>Titulo</th>
-      <th>Cor</th>
-      <th>Descricao</th>
-      <th colspan="3"></th>
+      <th class="cor">Cor</th>
+      <th class="titulo">Título</th>
+      <th class="descricao">Descrição</th>
     </tr>
   </thead>
 
   <tbody>
     <% @categories.each do |category| %>
       <tr>
-        <td><%= category.titulo %></td>
-        <td><%= category.cor %></td>
-        <td><%= category.descricao %></td>
-        <td><%= link_to 'Show', category %></td>
-        <td><%= link_to 'Edit', edit_category_path(category) %></td>
-        <td><%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td class="cor"><div class="corCategoria" style="background-color: <%= category.cor %>;"></div></td>
+        <td class="titulo"><%= link_to category.titulo, category %></td>
+        <td class="descricao"><%= truncate(strip_tags(category.descricao), length: 80) %></td>
       </tr>
     <% end %>
   </tbody>
@@ -26,4 +22,4 @@
 
 <br>
 
-<%= link_to 'New Category', new_category_path %>
+<%= link_to 'Nova Categoria', new_category_path, class: "botao isolado" %>

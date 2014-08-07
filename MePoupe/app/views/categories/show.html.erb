@@ -1,19 +1,13 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Titulo:</strong>
-  <%= @category.titulo %>
-</p>
+<div id="esquerda">
+	<h2><%= @category.titulo %></h2>
+	<p><div style="width: 60px; height: 12px; background-color: <%= @category.cor %>; border: solid 1px #999;"></div></p>
+	<p><%= @category.descricao %></p>
 
-<p>
-  <strong>Cor:</strong>
-  <%= @category.cor %>
-</p>
-
-<p>
-  <strong>Descricao:</strong>
-  <%= @category.descricao %>
-</p>
-
-<%= link_to 'Edit', edit_category_path(@category) %> |
-<%= link_to 'Back', categories_path %>
+	<%= link_to "Voltar", categories_path %>
+	<% if (@category.titulo != "Geral") %>
+	 | <%= link_to "Editar", edit_category_path(@category) %>
+	 | <%= link_to "Deletar", @category, method: :delete, data: { confirm: "Apagar.Confirma?" } %>
+	<% end %>
+</div>
