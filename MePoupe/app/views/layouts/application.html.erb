@@ -1,14 +1,32 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>MePoupe</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
+	<title>Mepoupe</title>
+	<%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
+	<%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+	<%= csrf_meta_tags %>
 </head>
 <body>
+<header>
+	<h1>Me Poupe!</h1>
+	<% if user_signed_in? %>
+		<%= button_to "Sair", destroy_user_session_path, style: "float: right;", method: :delete %><p style="float: right;">Olá, <%= current_user.email %> </p>
+		
+		<nav>
+			<ul>
+				<li><%= link_to "Inicio", home_path, class: "botao" %></li>
+				<li><%= link_to "Categorias", categories_path, class: "botao" %></li>
+				<li><%= link_to "Lançamentos", entries_path, class: "botao" %></li>
+				<li><%= link_to "Metas", goals_path, class: "botao" %></li>
+				<li><!--%= link_to "Relatórios", report_index_path, class: "botao" %--></li>
+			</ul>
+		</nav>
+	<% end %>
+</header>
 
-<%= yield %>
+<article>
+	<%= yield %>
+</article>
 
 </body>
 </html>
