@@ -12,7 +12,6 @@
  *= require_tree .
  */
 
-
 *
 {
 margin: 0px;
@@ -33,6 +32,11 @@ h1, h2, h3
 {
 color: rgb(76, 77, 78);
 font-family: "Corbel", "Consolas", "Broadway", "Bernard MT", "Arial";
+}
+
+textarea
+{
+resize: none;
 }
 
 .corCategoria
