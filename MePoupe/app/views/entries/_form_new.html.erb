@@ -40,23 +40,23 @@
 	<!--------------------------------------------------------------------->
 	
 	<div class="field">
-		<%= f.label :valor %><br>
-		<%= f.text_field :valor, maxlength: "12", placeholder: "79,95", required: "required" %>
+		<%= label_tag :valor %><br>
+		<%= text_field_tag :valor %>
 	</div>
 	
 	<div class="field">
-		<%= f.label :parcelas %><br>
-		<%= f.number_field :parcelas %>
+		<%= label_tag :parcelas %><br>
+		<%= number_field_tag :parcelas %>
 	</div>
 	
 	<div class="field">
-		<%= f.label :data %><br>
-		<%= f.date_select :data %>
+		<%= label_tag :data %><br>
+		<%= datetime_select :data, DateTime.now %>
 	</div>
 	
 	<div class="field">
-		<%= f.label :confirmacao %><br>
-		<%= f.number_field :confirmacao %>
+		<%= label_tag :confirmacao %><br>
+		<%= number_field_tag :confirmacao %>
 	</div>
 	
 	<div class="actions">

@@ -3,6 +3,11 @@ class Entry < ActiveRecord::Base
 	belongs_to :ctegory
 	after_create :criar_parcelas
 	
+	#def initialize(dados)
+	#	super(dados)
+		
+	#end
+	
 	def criar_parcelas(dados)
 		if(periodicidade != 1)
 			dados.parcelas = 1
