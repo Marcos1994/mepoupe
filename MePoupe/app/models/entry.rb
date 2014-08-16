@@ -8,17 +8,6 @@ class Entry < ActiveRecord::Base
 		
 	#end
 	
-	def criar_parcelas(dados)
-		if(periodicidade != 1)
-			dados.parcelas = 1
-		end
-		
-		for i in (0..(dados.parcelas)) do
-			self.parts
-			dados.data = proximo_mes(dados.data)
-		end
-	end
-	
 	def proximo_mes(mes_atual)
 		dt_at = /(....).(..).(..)/.match(Date.today.to_s)
 	end

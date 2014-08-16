@@ -23,19 +23,19 @@ class PartsController < ApplicationController
 
   # POST /parts
   # POST /parts.json
-  def create
-    @part = Part.new(part_params)
-
-    respond_to do |format|
-      if @part.save
-        format.html { redirect_to @part, notice: 'Part was successfully created.' }
-        format.json { render :show, status: :created, location: @part }
-      else
-        format.html { render :new }
-        format.json { render json: @part.errors, status: :unprocessable_entity }
-      end
-    end
-  end
+	def create(part_params)
+		@part = Part.new(part_params)
+		@part.save
+#		respond_to do |format|
+#			if @part.save
+#				format.html { redirect_to @part, notice: 'Part was successfully created.' }
+#				format.json { render :show, status: :created, location: @part }
+#			else
+#				format.html { render :new }
+#				format.json { render json: @part.errors, status: :unprocessable_entity }
+#			end
+#		end
+	end
 
   # PATCH/PUT /parts/1
   # PATCH/PUT /parts/1.json

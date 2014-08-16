@@ -24,8 +24,17 @@ class EntriesController < ApplicationController
   # POST /entries
   # POST /entries.json
 	def create
-		entry_val = { :titulo => params[:valor], :tipo => entry_params[:tipo], :category_id => entry_params[:category_id], :periodicidade => entry_params[:periodicidade], :descricao => entry_params[:descricao]}
+		entry_val = { :titulo => params[:titulo], :tipo => entry_params[:tipo], :category_id => entry_params[:category_id], :periodicidade => entry_params[:periodicidade], :descricao => entry_params[:descricao]}
 		@entry = Entry.new(entry_val)
+		
+		params_part = { :valor => params[:valor], :data => params[:data], :confirmacao => params[:confirmacao], :entry_id => @entry.id }
+		if(params[:periodicidade] != 1)
+			params[:parcelas] = 1
+		end
+		partCont = PartsController.new
+		for i in (0..(params[:parcelas])) do
+			redirect_to partCont.create(params_part) and return
+		end
 		
 		respond_to do |format|
 		if @entry.save
