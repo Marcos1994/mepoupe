@@ -23,19 +23,20 @@ class EntriesController < ApplicationController
 
   # POST /entries
   # POST /entries.json
-  def create
-    @entry = Entry.new(entry_params)
-
-    respond_to do |format|
-      if @entry.save
-        format.html { redirect_to @entry, notice: 'Entry was successfully created.' }
-        format.json { render :show, status: :created, location: @entry }
-      else
-        format.html { render :new }
-        format.json { render json: @entry.errors, status: :unprocessable_entity }
-      end
-    end
-  end
+	def create
+		entry_val = { :titulo => params[:valor], :tipo => entry_params[:tipo], :category_id => entry_params[:category_id], :periodicidade => entry_params[:periodicidade], :descricao => entry_params[:descricao]}
+		@entry = Entry.new(entry_val)
+		
+		respond_to do |format|
+		if @entry.save
+			format.html { redirect_to @entry, notice: 'Entry was successfully created.' }
+			format.json { render :show, status: :created, location: @entry }
+		else
+			format.html { render :new }
+			format.json { render json: @entry.errors, status: :unprocessable_entity }
+		end
+		end
+	end
 
   # PATCH/PUT /entries/1
   # PATCH/PUT /entries/1.json

@@ -10,15 +10,14 @@
 			</ul>
 		</div>
 	<% end %>
-
-	<table>
+<!-- , maxlength: "30", placeholder: "Título", required: "required", autofocus: "autofocus" -->
 	<div class="field">
-		<%= f.label :titulo %><br>
-		<%= f.text_field :titulo, maxlength: "30", placeholder: "Título", required: "required", autofocus: "autofocus" %>
+		<%= label_tag(:titulo, "Titulo") %><br>
+		<%= text_field_tag :titulo %>
 	</div>
 	
 	<div class="field">
-		<%= f.label :tipo %><br>
+		<%= label_tag(:tipo, "Tipo") %><br>
 		<%= f.select :tipo, ([["Despesa", 0], ["Receita", 1]]) %>
 	</div>
 	
@@ -40,7 +39,7 @@
 	<!--------------------------------------------------------------------->
 	
 	<div class="field">
-		<%= label_tag :valor %><br>
+		<%= label_tag(:valor, "Valor") %><br>
 		<%= text_field_tag :valor %>
 	</div>
 	
@@ -51,7 +50,8 @@
 	
 	<div class="field">
 		<%= label_tag :data %><br>
-		<%= datetime_select :data, DateTime.now %>
+		<!--= datetime_select :data, DateTime.now -->
+		<%= date_select("data", "data", selected: Date.today) %>
 	</div>
 	
 	<div class="field">
@@ -62,5 +62,4 @@
 	<div class="actions">
 		<%= f.submit %>
 	</div>
-	</table>
 <% end %>
