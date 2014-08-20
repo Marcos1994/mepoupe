@@ -31,9 +31,10 @@ class EntriesController < ApplicationController
 		if(params[:periodicidade] != 1)
 			params[:parcelas] = 1
 		end
-		partCont = PartsController.new
 		for i in (0..(params[:parcelas])) do
-			redirect_to partCont.create(params_part) and return
+			@part = Part.new(part_params)
+			@entry.parts << @part
+			#@part.save
 		end
 		
 		respond_to do |format|
