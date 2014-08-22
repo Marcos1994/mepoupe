@@ -3,9 +3,10 @@ class EntriesController < ApplicationController
 
   # GET /entries
   # GET /entries.json
-  def index
-    @entries = Entry.all
-  end
+	def index
+		@entries = Entry.all
+		@parts = Part.all
+	end
 
   # GET /entries/1
   # GET /entries/1.json
@@ -26,13 +27,16 @@ class EntriesController < ApplicationController
 	def create
 		entry_val = { :titulo => params[:titulo], :tipo => entry_params[:tipo], :category_id => entry_params[:category_id], :periodicidade => entry_params[:periodicidade], :descricao => entry_params[:descricao]}
 		@entry = Entry.new(entry_val)
+		parcelas = 1
 		
-		params_part = { :valor => params[:valor], :data => params[:data], :confirmacao => params[:confirmacao], :entry_id => @entry.id }
-		if(params[:periodicidade] != 1)
-			params[:parcelas] = 1
+		#params_part = { :valor => params[:valor], :data => params[:data], :confirmacao => params[:confirmacao], :entry_id => @entry.id }
+		if(params[:periodicidade] == 1)
+			parcelas = params[:parcelas]
 		end
-		for i in (0..(params[:parcelas])) do
-			@part = Part.new(part_params)
+		for i in (0..(parcelas - 1)) do
+#			params_part = { :valor => params[:valor], :data => Date.today, :confirmacao => params[:confirmacao], :entry_id => @entry.id }
+			params_part = { :valor => params[:valor], :data => Date.today, :confirmacao => i, :entry_id => @entry.id }
+			@part = Part.new(params_part)
 			@entry.parts << @part
 			#@part.save
 		end

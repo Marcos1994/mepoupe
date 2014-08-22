@@ -1,29 +1,42 @@
 <h1>Listing entries</h1>
 
 <table>
-  <thead>
-    <tr>
-      <th>Titulo</th>
-      <th>Descricao</th>
-      <th>Tipo</th>
-      <th>Periodicidade</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+	<thead>
+		<tr>
+			<th>Titulo</th>
+			<th>Descricao</th>
+			<th>Tipo</th>
+			<th>Periodicidade</th>
+			<th>Parcelas</th>
+			<th colspan="3"></th>
+		</tr>
+	</thead>
 
-  <tbody>
-    <% @entries.each do |entry| %>
-      <tr>
-        <td><%= entry.titulo %></td>
-        <td><%= entry.descricao %></td>
-        <td><%= entry.tipo %></td>
-        <td><%= entry.periodicidade %></td>
-        <td><%= link_to 'Show', entry %></td>
-        <td><%= link_to 'Edit', edit_entry_path(entry) %></td>
-        <td><%= link_to 'Destroy', entry, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
+	<tbody>
+		<% @entries.each do |entry| %>
+			<tr>
+				<td><%= entry.titulo %></td>
+				<td><%= entry.descricao %></td>
+				<td><%= entry.tipo %></td>
+				<td><%= entry.periodicidade %></td>
+				<td>
+					<% @parts.each do |part| %>
+						<ul>
+							<% if(part.entry_id == entry.id) %>
+								<li>
+									<%= part.valor %> |
+									<%= part.data %>
+								</li>
+							<% end %>
+						</ul>
+					<% end %>
+				</td>
+				<td><%= link_to 'Show', entry %></td>
+				<td><%= link_to 'Edit', edit_entry_path(entry) %></td>
+				<td><%= link_to 'Destroy', entry, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+			</tr>
+		<% end %>
+	</tbody>
 </table>
 
 <br>
