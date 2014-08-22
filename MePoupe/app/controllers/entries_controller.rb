@@ -5,7 +5,6 @@ class EntriesController < ApplicationController
   # GET /entries.json
 	def index
 		@entries = Entry.all
-		@parts = Part.all
 	end
 
   # GET /entries/1
@@ -27,21 +26,21 @@ class EntriesController < ApplicationController
 	def create
 		entry_val = { :titulo => params[:titulo], :tipo => entry_params[:tipo], :category_id => entry_params[:category_id], :periodicidade => entry_params[:periodicidade], :descricao => entry_params[:descricao]}
 		@entry = Entry.new(entry_val)
-		parcelas = 1
 		
-		if(params[:periodicidade] == 1)
-			parcelas = params[:parcelas]
+		parcelas = params[:parcelas].to_i
+		if((entry_params[:periodicidade] != 1) || parcelas < 1)
+			parcelas = 1
 		end
-		for i in (0..(parcelas - 1)) do
-#			params_part = { :valor => params[:valor], :data => Date.today, :confirmacao => params[:confirmacao], :entry_id => @entry.id }
-			params_part = { :valor => params[:valor], :data => Date.today, :confirmacao => i, :entry_id => @entry.id }
+		
+		for i in (1..parcelas) do
+			params_part = { :valor => parcelas, :data => Date.today, :confirmacao => 0, :entry_id => @entry.id }
+			#params_part = { :valor => params[:valor], :data => Date.today, :confirmacao => params[:confirmacao], :entry_id => @entry.id }
 			@part = Part.new(params_part)
 			@entry.parts << @part
-			#@part.save
 		end
 		
 		respond_to do |format|
-		if @entry.save
+		if @entry.save	#Salva o lançamento e todas as parcelas (autosave: true)
 			format.html { redirect_to @entry, notice: 'Entry was successfully created.' }
 			format.json { render :show, status: :created, location: @entry }
 		else
@@ -83,6 +82,6 @@ class EntriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def entry_params
-      params.require(:entry).permit(:titulo, :descricao, :tipo, :periodicidade)
+      params.require(:entry).permit(:titulo, :descricao, :tipo, :periodicidade, :category_id)
     end
 end

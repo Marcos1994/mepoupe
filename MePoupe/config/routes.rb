@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'report/index'
+	get 'report/index'
 
 	get 'home/index'
 
@@ -12,6 +12,8 @@ Rails.application.routes.draw do
 	resources :categories
 
 	devise_for :users
+	
+	delete 'home/index' => 'home#resetar'
 
 	root "home#index" , as: "home"
 	# The priority is based upon order of creation: first created -> highest priority.

@@ -4,6 +4,7 @@
 	<thead>
 		<tr>
 			<th>Titulo</th>
+			<th>Categoria</th>
 			<th>Descricao</th>
 			<th>Tipo</th>
 			<th>Periodicidade</th>
@@ -16,18 +17,17 @@
 		<% @entries.each do |entry| %>
 			<tr>
 				<td><%= entry.titulo %></td>
+				<td><%= entry.category.titulo %></td>
 				<td><%= entry.descricao %></td>
 				<td><%= entry.tipo %></td>
 				<td><%= entry.periodicidade %></td>
 				<td>
-					<% @parts.each do |part| %>
+					<% entry.parts.each do |part| %>
 						<ul>
-							<% if(part.entry_id == entry.id) %>
-								<li>
-									<%= part.valor %> |
-									<%= part.data %>
-								</li>
-							<% end %>
+							<li>
+								<%= part.valor %> |
+								<%= part.data %>
+							</li>
 						</ul>
 					<% end %>
 				</td>
