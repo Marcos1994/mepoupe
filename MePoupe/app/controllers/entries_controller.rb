@@ -29,7 +29,6 @@ class EntriesController < ApplicationController
 		@entry = Entry.new(entry_val)
 		parcelas = 1
 		
-		#params_part = { :valor => params[:valor], :data => params[:data], :confirmacao => params[:confirmacao], :entry_id => @entry.id }
 		if(params[:periodicidade] == 1)
 			parcelas = params[:parcelas]
 		end
