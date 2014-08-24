@@ -8,7 +8,7 @@
 			<th id="titulo">Titulo</th>
 			<th>Descricao</th>
 			<th id="period">Periodicidade</th>
-			<th id="parc">Parcelas</th>
+			<th id="parc" colspan="2">Parcelas</th>
 		</tr>
 	</thead>
 
@@ -36,15 +36,19 @@
 						<% end %>
 					<% end %>
 				</td>
-				<td>
-					<% entry.parts.each do |part| %>
-						<ul>
-							<li>
-								<%= part.valor %> |
-								<%= part.data %>
-							</li>
-						</ul>
-					<% end %>
+				<td class="mostrarMais" id="exp<%= entry.id %>">
+					<p class="expandir">+</a>
+				</td>
+				<td class="parc">
+					<table cellspacing="0">
+						<% entry.parts.each do |part| %>
+							<tr class="<%= entry.id %>" id="<%= part.id %>">
+								<td class="valor">R$ <%= part.valor %></td>
+								<td class="data"><%= part.data %></td>
+								<!-- part.data.month -->
+							</tr>
+						<% end %>
+					</table>
 				</td>
 			</tr>
 		<% end %>
@@ -53,4 +57,4 @@
 
 <br>
 
-<%= link_to 'New Entry', new_entry_path %>
+<%= link_to 'New Entry', new_entry_path, class: "botao isolado" %>
