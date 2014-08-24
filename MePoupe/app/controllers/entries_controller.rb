@@ -4,7 +4,14 @@ class EntriesController < ApplicationController
   # GET /entries
   # GET /entries.json
 	def index
-		@entries = Entry.all
+		#@entries = Entry.all
+		cat = current_user.categories
+		if(cat.length >= 1)
+			@entries = cat[0].entries
+			for i in (2..cat.length) do
+				@entries += cat[i-1].entries
+			end
+		end
 	end
 
   # GET /entries/1
@@ -28,7 +35,7 @@ class EntriesController < ApplicationController
 		@entry = Entry.new(entry_val)
 		
 		parcelas = params[:parcelas].to_i
-		if((entry_params[:periodicidade] != 1) || parcelas < 1)
+		if((entry_params[:periodicidade] != "1") || parcelas < 1)
 			parcelas = 1
 		end
 		

@@ -39,6 +39,16 @@ textarea
 resize: none;
 }
 
+table
+{
+width: 100%;
+}
+
+table th, table td
+{
+padding: 5px;
+}
+
 .corCategoria
 {
 width: 30px;

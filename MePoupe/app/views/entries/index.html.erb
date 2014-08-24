@@ -1,26 +1,41 @@
 <h1>Listing entries</h1>
 
-<table>
-	<thead>
+<table cellspacing="0">
+	<thead id="tabelaLancamento">
 		<tr>
-			<th>Titulo</th>
-			<th>Categoria</th>
+			<th id="tipo">Tipo</th>
+			<th id="cat">Categ.</th>
+			<th id="titulo">Titulo</th>
 			<th>Descricao</th>
-			<th>Tipo</th>
-			<th>Periodicidade</th>
-			<th>Parcelas</th>
-			<th colspan="3"></th>
+			<th id="period">Periodicidade</th>
+			<th id="parc">Parcelas</th>
 		</tr>
 	</thead>
 
 	<tbody>
 		<% @entries.each do |entry| %>
 			<tr>
-				<td><%= entry.titulo %></td>
-				<td><%= entry.category.titulo %></td>
+				<td>
+					<% if entry.tipo == 0 %>
+						<div class="despesa">Despesa</div>
+					<% else %>
+						<div class="receita">Receita</div>
+					<%end%>
+				</td>
+				<td class="cor"><div class="corCategoria" style="background-color: <%= entry.category.cor %>;"></div></td>
+				<td><%= link_to entry.titulo, entry %> </td>
 				<td><%= entry.descricao %></td>
-				<td><%= entry.tipo %></td>
-				<td><%= entry.periodicidade %></td>
+				<td>
+					<% if entry.periodicidade == 0 %>
+						Avulsa
+					<% else %>
+						<% if entry.periodicidade == 1 %>
+							Parcelada
+						<% else %>
+							Fixa
+						<% end %>
+					<% end %>
+				</td>
 				<td>
 					<% entry.parts.each do |part| %>
 						<ul>
@@ -31,9 +46,6 @@
 						</ul>
 					<% end %>
 				</td>
-				<td><%= link_to 'Show', entry %></td>
-				<td><%= link_to 'Edit', edit_entry_path(entry) %></td>
-				<td><%= link_to 'Destroy', entry, method: :delete, data: { confirm: 'Are you sure?' } %></td>
 			</tr>
 		<% end %>
 	</tbody>
