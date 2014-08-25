@@ -35,6 +35,10 @@
     <p>Categoria da meta:<p>
     <%= f.collection_select(:category_id, current_user.categories.order(:titulo) , :id, :titulo , {:prompt => 'Selecione a categoria'} ) %><br>
   </div>
+  <div class="field">
+    <p>Objetivo da Meta:<p>
+    <p>R$<%= f.text_field :valor %></p><br>
+  </div>
   <div class="actions">
     <br>
     <%= f.submit 'Salvar' , class: "botao isolado"%>
