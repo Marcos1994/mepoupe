@@ -14,3 +14,17 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+
+
+$(document).ready(function()
+{
+	$('#entry_periodicidade').blur(function()
+	{
+		var val = $('#entry_periodicidade').val();
+		if(val == 1)
+			$('#valor').html("Valor da parcela");
+		else
+			$('#valor').html("Valor total");
+	});
+});
