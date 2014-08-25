@@ -1,0 +1,39 @@
+// Place all the styles related to the Report controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.razaoTotal
+{
+width: 100px;
+margin: 0px auto;
+height: 10px;
+border: 1px solid #999;
+background: repeating-linear-gradient(135deg, #ffffff 0px, #ffffff 3px, #eeeeee 3px, #eeeeee 5px);
+}
+
+.razaoCategoria
+{
+float: left;
+height: 10px;
+}
+
+tfoot .razaoTotal
+{
+width: 250px;
+}
+
+.valor
+{
+width: 110px;
+}
+
+.porcentagem
+{
+width: 40px;
+}
+
+.barra
+{
+width: 110px;
+}

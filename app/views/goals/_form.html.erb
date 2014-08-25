@@ -1,0 +1,44 @@
+<%= form_for(@goal) do |f| %>
+  <% if @goal.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@goal.errors.count, "error") %> prohibited this goal from being saved:</h2>
+
+      <ul>
+      <% @goal.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <p>Meta:<p>
+    <%= f.text_field :titulo , size: 78 %><br>
+  </div>
+  <div class="field">
+    <p>Descrição da meta:<p>
+    <%= f.text_area :descricao, rows: 10, cols: 80 %><br>
+  </div>
+  <div class="field">
+    <p>Data de início:<p>
+    <%= f.date_select :inicio , {:order => [:day,:month, :year]}%><br>
+  </div>
+  <div class="field">
+    <p>Data de término:<p>
+    <%= f.date_select :fim , {:order => [:day,:month, :year]}%><br>
+  </div>
+  <div class="field">
+    <p>Situação da meta:<p>
+    <%= f.number_field :estado %><br>
+  </div>
+  <div class="field">
+    <p>Categoria da meta:<p>
+    <%= f.collection_select(:category_id, current_user.categories.order(:titulo) , :id, :titulo , {:prompt => 'Selecione a categoria'} ) %><br>
+  </div>
+  <div class="actions">
+    <br>
+    <%= f.submit 'Salvar' , class: "botao isolado"%>
+  </div>
+<% end %>
+<br>
+<br>
