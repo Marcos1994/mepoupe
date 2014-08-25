@@ -2,6 +2,34 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+#parcelas_field
+{
+display: block;
+overflow: hidden;
+height: 0px;
+opacity: 0;
+
+-webkit-transition-property: opacity, height;
+-webkit-transition-duration: 300ms;
+-webkit-transition-timing-function: ease-in;
+-webkit-transition-delay: 0ms;
+
+-moz-transition-property: opacity, height;
+-moz-transition-duration: 300ms;
+-moz-transition-timing-function: ease-in;
+-moz-transition-delay: 0ms;
+
+-o-transition-property: opacity, height;
+-o-transition-duration: 300ms;
+-o-transition-timing-function: ease-in;
+-o-transition-delay: 0ms;
+
+transition-property: opacity, height;
+transition-duration: 300ms;
+transition-timing-function: ease-in;
+transition-delay: 0ms;
+}
+
 #tabelaLancamento #tipo
 {
 width: 35px;

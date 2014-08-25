@@ -23,8 +23,18 @@ $(document).ready(function()
 	{
 		var val = $('#entry_periodicidade').val();
 		if(val == 1)
+		{
 			$('#valor').html("Valor da parcela");
+			$('#parcelas_field').css('height', '45px');
+			$('#parcelas_field').css('opacity', '1');
+			$('#parcelas').val("1");
+		}
 		else
+		{
 			$('#valor').html("Valor total");
+			$('#parcelas_field').css('height', '0px');
+			$('#parcelas_field').css('opacity', '0');
+			$('#parcelas').val("1");
+		}
 	});
 });

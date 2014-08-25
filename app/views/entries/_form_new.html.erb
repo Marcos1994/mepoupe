@@ -36,14 +36,14 @@
 		<%= f.text_area :descricao, cols: "35", rows: "3" %>
 	</div>
 	
-	<!--------------------------------------------------------------------->
+	<!-------------------------------------------------------------------->
 	
 	<div class="field">
-		<%= label_tag(:valor, "valor", id: "valor") %><br>
+		<%= label_tag(:valor, "Valor total", id: "valor") %><br>
 		<%= text_field_tag :valor %>
 	</div>
 	
-	<div class="field">
+	<div id="parcelas_field" class="field">
 		<%= label_tag :parcelas %><br>
 		<%= number_field_tag :parcelas %>
 	</div>
