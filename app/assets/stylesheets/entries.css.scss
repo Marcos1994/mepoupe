@@ -12,47 +12,11 @@ width: 70px;
 }
 #tabelaLancamento #titulo
 {
-width: 160px;
+width: 250px;
 }
 #tabelaLancamento #period
 {
-width: 110px;
-}
-
-#tabelaLancamento .mostrarMais .expandir
-{
-display: block;
-background-color: white;
-text-decoration: none;
-font-weight: bold;
-font-size: 18px;
-text-align: center;
-width: 20px;
-height: 20px;
-border-radius: 10px;
-color: rgb(77, 137, 193);
-border: 1px solid rgb(77, 137, 193);
-}
-	#tabelaLancamento .mostrarMais .expandir:hover
-	{
-	background-color: rgb(77, 137, 193);
-	color: white;
-	}
-#tabelaLancamento .mostrarMais
-{
-width: 22px;
-}
-#tabelaLancamento .parc
-{
-width: 210px;
-}
-
-#tabelaLancamento .parc td
-{
-border: 1px #ccc solid;
-padding-top: 0px;
-padding-bottom: 0px;
-height: 20px;
+width: 100px;
 }
 
 #tabelaLancamento .data
@@ -63,6 +27,7 @@ width: 80px;
 
 #tabelaLancamento .valorLancamento
 {
+background: repeating-linear-gradient(-45deg, #ccc 0px, #ccc 1px, #fff 1px, #fff 6px);
 border: 1px solid #ccc;
 width: 100px;
 height: 10px;
