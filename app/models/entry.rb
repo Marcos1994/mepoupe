@@ -19,11 +19,11 @@ class Entry < ActiveRecord::Base
 	end
 	
 	def valor_razao_efetivado
-		((self.valor_efetivado * 100) / self.valor_total).to_i
+		((self.valor_efetivado * 100) / self.valor).to_i
 	end
 	
 	def valor_razao_pendente
-		((self.valor_pendente * 100) / self.valor_total).to_i
+		((self.valor_pendente * 100) / self.valor).to_i
 	end
 	
 	#Auxiliar de valor_efetivado e valor_pendente
