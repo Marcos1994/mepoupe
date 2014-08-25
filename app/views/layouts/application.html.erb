@@ -8,7 +8,8 @@
 </head>
 <body>
 <header>
-	<h1>Me Poupe!</h1>
+	<%= image_tag('Mepoupe.png')%>
+	<h1> MePoupe! </h1>
 	<% if user_signed_in? %>
 		<%= button_to "Sair", destroy_user_session_path, style: "float: right;", method: :delete %><p style="float: right;">Olá, <%= current_user.email %> </p>
 		

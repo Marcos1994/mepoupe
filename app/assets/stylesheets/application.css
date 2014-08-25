@@ -119,8 +119,8 @@ width: 495px;
 header
 {
 height: 120px;
-padding-top: 30px;
-padding-bottom: 0px;
+padding-top: 5px;
+padding-bottom: 20px;
 }
 
 header h1
@@ -131,6 +131,10 @@ float: left;
 
 header p
 { float: right; }
+
+header img
+{ float: left; }
+
 
 #sair
 {
