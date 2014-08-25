@@ -5,9 +5,9 @@
 		<tr>
 			<th id="tipo">Tipo</th>
 			<th id="cat">Categ.</th>
-			<th>Titulo</th>
-			<th>Valor</th>
-			<th>Periodicidade</th>
+			<th id="titulo">Titulo</th>
+			<th id="period">Periodicidade</th>
+			<th id="parc" colspan="2">Parcelas</th>
 		</tr>
 	</thead>
 
@@ -24,9 +24,6 @@
 				<td class="cor"><div class="corCategoria" style="background-color: <%= entry.category.cor %>;"></div></td>
 				<td><%= link_to entry.titulo, entry %> </td>
 				<td>
-					R$ <%= entry.valor_total %>
-				</td>
-				<td>
 					<% if entry.periodicidade == 0 %>
 						Avulsa
 					<% else %>
@@ -36,6 +33,20 @@
 							Fixa
 						<% end %>
 					<% end %>
+				</td>
+				<td class="mostrarMais" id="exp<%= entry.id %>">
+					<p class="expandir">+</a>
+				</td>
+				<td class="parc">
+					<table cellspacing="0">
+						<% entry.parts.each do |part| %>
+							<tr class="<%= entry.id %>" id="<%= part.id %>">
+								<td class="valor">R$ <%= part.valor %></td>
+								<td class="data"><%= part.data %></td>
+								<!-- part.data.month -->
+							</tr>
+						<% end %>
+					</table>
 				</td>
 			</tr>
 		<% end %>
