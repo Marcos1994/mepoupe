@@ -18,11 +18,66 @@ width: 160px;
 {
 width: 110px;
 }
-#tabelaLancamento #parc
+
+#tabelaLancamento .mostrarMais .expandir
 {
-width: 150px;
+display: block;
+background-color: white;
+text-decoration: none;
+font-weight: bold;
+font-size: 18px;
+text-align: center;
+width: 20px;
+height: 20px;
+border-radius: 10px;
+color: rgb(77, 137, 193);
+border: 1px solid rgb(77, 137, 193);
+}
+	#tabelaLancamento .mostrarMais .expandir:hover
+	{
+	background-color: rgb(77, 137, 193);
+	color: white;
+	}
+#tabelaLancamento .mostrarMais
+{
+width: 22px;
+}
+#tabelaLancamento .parc
+{
+width: 210px;
 }
 
+#tabelaLancamento .parc td
+{
+border: 1px #ccc solid;
+padding-top: 0px;
+padding-bottom: 0px;
+height: 20px;
+}
+
+#tabelaLancamento .data
+{
+text-align: center;
+width: 80px;
+}
+
+#tabelaLancamento .valorLancamento
+{
+border: 1px solid #ccc;
+width: 100px;
+height: 10px;
+background-color: white;
+}
+
+#tabelaLancamento .valorPago, #tabelaLancamento .valorPendente
+{
+height: 10px;
+float: left;
+}
+#tabelaLancamento .valorPendente
+{
+opacity: 0.3;
+}
 
 
 .receita, .despesa

@@ -40,8 +40,8 @@ class EntriesController < ApplicationController
 		end
 		
 		for i in (1..parcelas) do
-			params_part = { :valor => parcelas, :data => Date.today, :confirmacao => 0, :entry_id => @entry.id }
-			#params_part = { :valor => params[:valor], :data => Date.today, :confirmacao => params[:confirmacao], :entry_id => @entry.id }
+			params_part = { :valor => params[:valor], :data => Date.today, :confirmacao => params[:confirmacao], :entry_id => @entry.id }
+			#params_part = { :valor => params[:valor], :data => params[:data], :confirmacao => params[:confirmacao], :entry_id => @entry.id }
 			@part = Part.new(params_part)
 			@entry.parts << @part
 		end
