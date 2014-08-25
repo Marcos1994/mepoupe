@@ -5,6 +5,7 @@ class EntriesController < ApplicationController
   # GET /entries.json
 	def index
 		#@entries = Entry.all
+		@entries = nil
 		cat = current_user.categories
 		if(cat.length >= 1)
 			@entries = cat[0].entries
@@ -12,6 +13,7 @@ class EntriesController < ApplicationController
 				@entries += cat[i-1].entries
 			end
 		end
+		@entries
 	end
 
   # GET /entries/1
