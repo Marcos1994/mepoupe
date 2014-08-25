@@ -11,11 +11,11 @@ class Entry < ActiveRecord::Base
 	end
 	
 	def valor_efetivado
-		self.valor(1)
+		self.valor_total(1)
 	end
 	
 	def valor_pendente
-		self.valor(0)
+		self.valor_total(0)
 	end
 	
 	def valor_razao_efetivado
@@ -26,7 +26,8 @@ class Entry < ActiveRecord::Base
 		((self.valor_pendente * 100) / self.valor_total).to_i
 	end
 	
-	def valor(estado)
+	#Auxiliar de valor_efetivado e valor_pendente
+	def valor_total(estado)
 		@valor = 0
 		self.parts.each do |p|
 			if(p.confirmacao == estado)
