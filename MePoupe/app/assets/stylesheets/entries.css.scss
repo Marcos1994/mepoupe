@@ -19,7 +19,7 @@ width: 160px;
 width: 110px;
 }
 
-.mostrarMais .expandir
+#tabelaLancamento .mostrarMais .expandir
 {
 display: block;
 background-color: white;
@@ -33,21 +33,21 @@ border-radius: 10px;
 color: rgb(77, 137, 193);
 border: 1px solid rgb(77, 137, 193);
 }
-	.mostrarMais .expandir:hover
+	#tabelaLancamento .mostrarMais .expandir:hover
 	{
 	background-color: rgb(77, 137, 193);
 	color: white;
 	}
-.mostrarMais
+#tabelaLancamento .mostrarMais
 {
 width: 22px;
 }
-.parc
+#tabelaLancamento .parc
 {
 width: 210px;
 }
 
-.parc td
+#tabelaLancamento .parc td
 {
 border: 1px #ccc solid;
 padding-top: 0px;
@@ -55,12 +55,29 @@ padding-bottom: 0px;
 height: 20px;
 }
 
-.data
+#tabelaLancamento .data
 {
 text-align: center;
 width: 80px;
 }
 
+#tabelaLancamento .valorLancamento
+{
+border: 1px solid #ccc;
+width: 100px;
+height: 10px;
+background-color: white;
+}
+
+#tabelaLancamento .valorPago, #tabelaLancamento .valorPendente
+{
+height: 10px;
+float: left;
+}
+#tabelaLancamento .valorPendente
+{
+opacity: 0.3;
+}
 
 
 .receita, .despesa

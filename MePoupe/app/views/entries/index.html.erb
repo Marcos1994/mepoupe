@@ -1,12 +1,12 @@
 <h1>Listing entries <% @entries.class %></h1>
 
-<table cellspacing="0">
-	<thead id="tabelaLancamento">
+<table id="tabelaLancamento" cellspacing="0">
+	<thead>
 		<tr>
 			<th id="tipo">Tipo</th>
 			<th id="cat">Categ.</th>
 			<th>Titulo</th>
-			<th>Valor</th>
+			<th colspan="2">Valor</th>
 			<th>Periodicidade</th>
 		</tr>
 	</thead>
@@ -23,8 +23,12 @@
 				</td>
 				<td class="cor"><div class="corCategoria" style="background-color: <%= entry.category.cor %>;"></div></td>
 				<td><%= link_to entry.titulo, entry %> </td>
+				<td>R$ <%= entry.valor_total %></td>
 				<td>
-					R$ <%= entry.valor_total %>
+					<div class="valorLancamento">
+						<div class="valorPago" style="width: <%= entry.valor_razao_efetivado %>px; background-color: <%= entry.category.cor %>;"></div>
+						<div class="valorPendente" style="width: <%= entry.valor_razao_pendente %>px; background-color: <%= entry.category.cor %>;"></div>
+					</div>
 				</td>
 				<td>
 					<% if entry.periodicidade == 0 %>
