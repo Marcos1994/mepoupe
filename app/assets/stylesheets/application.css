@@ -215,3 +215,22 @@ article tbody tr:nth-child(odd)
 {
 background-color: #f0f0f0;
 }
+
+
+
+/* ---- Auxiliares ---- */
+
+
+#colunaDireita
+{
+width: 495px;
+padding-left: 5px;
+float: right;
+}
+
+#colunaEsquerda
+{
+width: 395px;
+padding-right: 5px;
+float: left;
+}

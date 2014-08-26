@@ -1,24 +1,59 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Titulo:</strong>
-  <%= @entry.titulo %>
-</p>
+<div id="colunaEsquerda">
+	<h2>
+		<% if @entry.tipo == 0 %>
+			<div class="despesa" style="float: left;">Despesa</div>
+		<% else %>
+			<div class="receita" style="float: left;">Receita</div>
+		<%end%>
+		<%= @entry.titulo %>
+	</h2>
 
-<p>
-  <strong>Descricao:</strong>
-  <%= @entry.descricao %>
-</p>
+	<p>
+	<strong>Periodicidade:</strong>
+	<% if (@entry.periodicidade == 0) %>
+		Avulsa
+	<% elsif (@entry.periodicidade == 1) %>
+		Parcelada
+	<% else %>
+		Fixa
+	<% end %>
+	</p>
+	
+	<p><%= @entry.descricao %></p>
 
-<p>
-  <strong>Tipo:</strong>
-  <%= @entry.tipo %>
-</p>
+	<br/>
+	
+	<%= link_to "Back", entries_path %> |
+	<%= link_to "Edit", edit_entry_path(@entry) %> |
+	<%= link_to "Deletar", @entry, method: :delete, data: { confirm: "Deseja apagar este lancamento?" } %>
+</div>
 
-<p>
-  <strong>Periodicidade:</strong>
-  <%= @entry.periodicidade %>
-</p>
+<div id="colunaDireita">
+	<table cellspacing="0">
+		<thead>
+			<tr>
+				<th>Valor</th>
+				<th>Data</th>
+				<th>Estado</th>
+			</tr>
+		</thead>
 
-<%= link_to 'Edit', edit_entry_path(@entry) %> |
-<%= link_to 'Back', entries_path %>
+		<tbody>
+			<% @entry.parts.each do |part| %>
+				<tr>
+					<td><%= link_to ("R$ " + part.valor.to_s), part %></td>
+					<td><%= part.data %></td>
+					<td>
+						<% if (part.confirmacao == 0) %>
+							Pendente
+						<% else %>
+							Efetivado
+						<% end %>
+					</td>
+				</tr>
+			<% end %>
+		</tbody>
+	</table>
+</div>

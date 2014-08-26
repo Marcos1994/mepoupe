@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<div id="esquerda">
+<div id="colunaEsquerda">
 	<h2><%= @category.titulo %></h2>
 	<p><div style="width: 60px; height: 12px; background-color: <%= @category.cor %>; border: solid 1px #999;"></div></p>
 	<p><%= @category.descricao %></p>
@@ -8,6 +8,34 @@
 	<%= link_to "Voltar", categories_path %>
 	<% if (@category.titulo != "Geral") %>
 	 | <%= link_to "Editar", edit_category_path(@category) %>
-	 | <%= link_to "Deletar", @category, method: :delete, data: { confirm: "Apagar.Confirma?" } %>
+	 | <%= link_to "Deletar", @category, method: :delete, data: { confirm: "Deseja apagar esta categoria?" } %>
 	<% end %>
+</div>
+
+<div id="colunaDireita">
+	<table id="tabelaLancamento" cellspacing="0">
+		<thead>
+			<tr>
+				<th id="tipo">Tipo</th>
+				<th id="titulo">Titulo</th>
+				<th>Valor</th>
+			</tr>
+		</thead>
+
+		<tbody>
+			<% @category.entries.each do |entry| %>
+				<tr>
+					<td>
+						<% if entry.tipo == 0 %>
+							<div class="despesa">Despesa</div>
+						<% else %>
+							<div class="receita">Receita</div>
+						<%end%>
+					</td>
+					<td><%= link_to entry.titulo, entry %> </td>
+					<td class="valor">R$ <%= entry.valor %></td>
+				</tr>
+			<% end %>
+		</tbody>
+	</table>
 </div>
