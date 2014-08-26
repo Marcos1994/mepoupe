@@ -12,61 +12,54 @@
 	<% end %>
 <!-- , maxlength: "30", placeholder: "Título", required: "required", autofocus: "autofocus" -->
 
-	<table cellspacing="0">
-		<tr>
-			<td colspan="2">
-				<%= label_tag(:titulo, "Titulo") %><br/>
-				<%= text_field_tag :titulo %>
-			</td>
-		</tr>
+		<div class="field">
+			<%= label_tag(:titulo, "Titulo") %><br/>
+			<%= text_field_tag :titulo %>
+		</div>
 		
-		<tr>
-			<td colspan="2">
-				<%= f.label :descricao %><br/>
-				<%= f.text_area :descricao, cols: "35", rows: "3" %>
-			</td>
-		</tr>
+		<div class="field">
+			<%= f.label :descricao %><br/>
+			<%= f.text_area :descricao, cols: "35", rows: "3" %>
+		</div>
 		
-		<tr>
-			<td><%= label_tag(:tipo, "Tipo") %></td>
-			<td><%= f.select :tipo, ([["Despesa", 0], ["Receita", 1]]) %></td>
-		</tr>
+		<div class="field">
+			<%= label_tag(:tipo, "Tipo") %><br/>
+			<%= f.select :tipo, ([["Despesa", 0], ["Receita", 1]]) %>
+		</div>
 		
-		<tr>
-			<td><%= f.label :category_id %></td>
-			<td><%= f.collection_select(:category_id, current_user.categories.order(:titulo) , :id, :titulo , {:prompt => "Selecione a categoria"} ) %></td>
-		</tr>
+		<div class="field">
+			<%= f.label :category_id %><br/>
+			<%= f.collection_select(:category_id, current_user.categories.order(:titulo) , :id, :titulo , {:prompt => "Selecione a categoria"} ) %>
+		</div>
 		
-		<tr>
-			<td><%= f.label :periodicidade %></td>
-			<td><%= f.select  :periodicidade, ([["Avulsa", 0], ["Parcelada", 1], ["Fixa", 2]]) %></td>
-		</tr>
+		<div class="field">
+			<%= f.label :periodicidade %><br/>
+			<%= f.select  :periodicidade, ([["Avulsa", 0], ["Parcelada", 1], ["Fixa", 2]]) %>
+		</div>
 		
 		<!-------------------------------------------------------------------->
 		
-		<tr>class="parcelas_field
-			<td>
-				<%= label_tag(:valor, "Valor total", id: "valor") %><br/>
-				<%= label_tag :parcelas %>
-			</td>
-			<td>
-				<%= text_field_tag :valor %><br/>
-				<%= number_field_tag :parcelas %>
-			</td>
-		</tr>
+		<div class="field">
+			<%= label_tag(:valor, "Valor total", id: "valor") %><br/>
+			<%= text_field_tag :valor %>
+		</div>
 		
-		<tr>
-			<td><%= label_tag :data %></td>
-			<td><%= date_select("data", "data", selected: Date.today) %></td>
-		</tr>
+		<div id="parcelas_field" class="field>
+			<%= label_tag :parcelas %><br/>
+			<%= number_field_tag :parcelas %>
+		</div>
 		
-		<tr>
-			<td><%= label_tag :confirmacao %></td>
-			<td><%= select_tag :confirmacao, options_for_select([["Efetivado", 1], ["Nao efetivado", 0]]) %></td>
-		</tr>
+		<div class="field">
+			<%= label_tag :data %><br/>
+			<%= date_select("data", "data", selected: Date.today) %>
+		</div>
 		
-		<tr>
-			<td colspan="2"><%= f.submit %></td>
-		</tr>
-	</table<
+		<div class="field">
+			<%= label_tag :confirmacao %><br/>
+			<%= select_tag :confirmacao, options_for_select([["Efetivado", 1], ["Nao efetivado", 0]]) %>
+		</div>
+		
+		<div>
+			<%= f.submit %>
+		</div>
 <% end %>
