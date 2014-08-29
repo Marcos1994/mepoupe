@@ -1,1 +1,3 @@
 $('#renderParts').html('<%= escape_javascript render(@entry.parts) %>');
+$('.valorPago').css('width', '<%= @entry.valor_razao_efetivado %>px');
+$('#valorEfetivado').html('<%= @entry.valor_efetivado %>');

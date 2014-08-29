@@ -1,6 +1,6 @@
-<p id="notice"><%= notice %></p>
-
 <div id="colunaEsquerda">
+	<p id="notice"><%= notice %></p>
+	
 	<h2>
 		<% if @entry.tipo == 0 %>
 			<div class="despesa" style="float: left;">Despesa</div>
@@ -9,16 +9,23 @@
 		<%end%>
 		<%= @entry.titulo %>
 	</h2>
+	
+	<p>
+		<strong>Andamento:</strong> R$<span id="valorEfetivado"><%= @entry.valor_efetivado %></span>
+		<div class="valorBarra">
+			<div class="valorPago" style="width: <%= @entry.valor_razao_efetivado %>px; background-color: <%= @entry.category.cor %>;"></div>
+		</div>
+	</p>
 
 	<p>
-	<strong>Periodicidade:</strong>
-	<% if (@entry.periodicidade == 0) %>
-		Avulsa
-	<% elsif (@entry.periodicidade == 1) %>
-		Parcelada
-	<% else %>
-		Fixa
-	<% end %>
+		<strong>Periodicidade:<br/></strong>
+		<% if (@entry.periodicidade == 0) %>
+			Avulsa
+		<% elsif (@entry.periodicidade == 1) %>
+			Parcelada
+		<% else %>
+			Fixa
+		<% end %>
 	</p>
 	
 	<p><%= @entry.descricao %></p>

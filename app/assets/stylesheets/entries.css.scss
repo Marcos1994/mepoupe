@@ -53,23 +53,41 @@ text-align: center;
 width: 80px;
 }
 
-#tabelaLancamento .valorLancamento
+.valorBarra
 {
 background: repeating-linear-gradient(-45deg, #ccc 0px, #ccc 1px, #fff 1px, #fff 6px);
 border: 1px solid #ccc;
 width: 100px;
 height: 10px;
 background-color: white;
+border-radius: 3px;
+overflow: hidden;
 }
 
-#tabelaLancamento .valorPago, #tabelaLancamento .valorPendente
+.valorBarra .valorPago
 {
 height: 10px;
 float: left;
-}
-#tabelaLancamento .valorPendente
-{
-opacity: 0.3;
+
+-webkit-transition-property: width;
+-webkit-transition-duration: 500ms;
+-webkit-transition-timing-function: ease-in;
+-webkit-transition-delay: 0ms;
+
+-moz-transition-property: width;
+-moz-transition-duration: 500ms;
+-moz-transition-timing-function: ease-in;
+-moz-transition-delay: 0ms;
+
+-o-transition-property: width;
+-o-transition-duration: 500ms;
+-o-transition-timing-function: ease-in;
+-o-transition-delay: 0ms;
+
+transition-property: width;
+transition-duration: 500ms;
+transition-timing-function: ease-in;
+transition-delay: 0ms;
 }
 
 
