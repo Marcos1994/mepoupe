@@ -11,7 +11,7 @@
 	</h2>
 	
 	<p>
-		<strong>Andamento:</strong> R$<span id="valorEfetivado"><%= @entry.valor_efetivado %></span>
+		<strong>Andamento:</strong> R$<span id="valorEfetivado"><%= @entry.valor_efetivado %></span> de R$<span id="valorTotal"><%= @entry.valor %></span>
 		<div class="valorBarra">
 			<div class="valorPago" style="width: <%= @entry.valor_razao_efetivado %>px; background-color: <%= @entry.category.cor %>;"></div>
 		</div>
@@ -32,8 +32,8 @@
 
 	<br/>
 	
-	<%= link_to "Back", entries_path %> |
-	<%= link_to "Edit", edit_entry_path(@entry) %> |
+	<%= link_to "Voltar", entries_path %> |
+	<%= link_to "Editar", edit_entry_path(@entry) %> |
 	<%= link_to "Deletar", @entry, method: :delete, data: { confirm: "Deseja apagar este lancamento?" } %>
 </div>
 

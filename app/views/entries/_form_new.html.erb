@@ -10,7 +10,6 @@
 			</ul>
 		</div>
 	<% end %>
-<!-- , maxlength: "30", placeholder: "Título", required: "required", autofocus: "autofocus" -->
 
 		<div class="field">
 			<%= label_tag(:titulo, "Titulo") %><br/>
@@ -28,7 +27,7 @@
 		</div>
 		
 		<div class="field">
-			<%= f.label :category_id %><br/>
+			<%= label_tag(:titulo, "Categoria") %><br/>
 			<%= f.collection_select(:category_id, current_user.categories.order(:titulo) , :id, :titulo , {:prompt => "Selecione a categoria"} ) %>
 		</div>
 		

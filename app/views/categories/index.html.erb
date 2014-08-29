@@ -6,7 +6,8 @@
       <th class="cor">Cor</th>
       <th class="titulo">Título</th>
       <th class="descricao">Descrição</th>
-	  <th colspan="2">Gasto total</th>
+	  <th colspan="2"><div class="receita"></div>Receita total</th>
+	  <th colspan="2"><div class="despesa"></div>Despesa total</th>
     </tr>
   </thead>
 
@@ -16,8 +17,10 @@
         <td class="cor"><div class="corCategoria" style="background-color: <%= category.cor %>;"></div></td>
         <td class="titulo"><%= link_to category.titulo, category %></td>
         <td class="descricao"><%= truncate(strip_tags(category.descricao), length: 80) %></td>
-        <td>R$<%= category.valor %></td>
-        <td><%= category.valor_razao_geral %>%</td>
+        <td>R$<%= category.valor_receita %></td>
+        <td><%= number_with_precision(category.valor_razao_receita, precision: 1) %>%</td>
+        <td>R$<%= category.valor_despesa %></td>
+        <td><%= number_with_precision(category.valor_razao_despesa, precision: 1) %>%</td>
       </tr>
     <% end %>
   </tbody>

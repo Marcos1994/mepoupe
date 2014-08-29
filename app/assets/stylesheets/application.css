@@ -34,6 +34,11 @@ color: rgb(76, 77, 78);
 font-family: "Corbel", "Consolas", "Broadway", "Bernard MT", "Arial";
 }
 
+input
+{
+min-width: 200px;
+}
+
 textarea
 {
 resize: none;
