@@ -44,19 +44,24 @@ class PartsController < ApplicationController
 
   # DELETE /parts/1
   # DELETE /parts/1.json
-  def destroy
-    @part.destroy
-    respond_to do |format|
-      format.html { redirect_to parts_url, notice: 'Part was successfully destroyed.' }
-      format.json { head :no_content }
-    end
-  end
+	def destroy
+		@part.destroy
+		respond_to do |format|
+			format.html { redirect_to parts_url, notice: 'Part was successfully destroyed.' }
+			format.json { head :no_content }
+		end
+	end
   
 	def efetivar
 		@part = Part.find(params[:id])
+		@entry = @part.entry
 		@part.confirmacao = 1
-		if @part.save 
-			redirect_to parts_url, notice: "Parcela efetivado com sucesso."
+		respond_to do |format|
+			if @part.save 
+				format.js
+				format.html{ redirect_to parts_url, notice: "Parcela efetivado com sucesso." }
+				format.json{ render action: 'show', status: :updated, location: @part }
+			end
 		end
 	end
 

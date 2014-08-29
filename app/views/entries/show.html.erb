@@ -40,20 +40,8 @@
 			</tr>
 		</thead>
 
-		<tbody>
-			<% @entry.parts.each do |part| %>
-				<tr>
-					<td><%= link_to ("R$ " + part.valor.to_s), part %></td>
-					<td><%= part.data %></td>
-					<td>
-						<% if (part.confirmacao != 1) %>
-							<%= button_to "Efetivar!", efetivar_part_path(part), method: :patch %>
-						<% else %>
-							Efetivado
-						<% end %>
-					</td>
-				</tr>
-			<% end %>
+		<tbody id="renderParts">
+			<%= render(@entry.parts) %>
 		</tbody>
 	</table>
 </div>

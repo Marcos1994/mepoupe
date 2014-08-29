@@ -62,6 +62,11 @@ class CategoriesController < ApplicationController
 				format.html { redirect_to categories_url, notice: 'Categoria apagada com sucesso!' }
 				format.json { head :no_content }
 			end
+		else
+			respond_to do |format|
+				format.html { redirect_to categories_url, notice: 'Essa categoria nao pode ser destruida!' }
+				format.json { head :no_content }
+			end
 		end
 	end
 
