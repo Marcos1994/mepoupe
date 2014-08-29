@@ -26,15 +26,6 @@ class PartsController < ApplicationController
 	def create(part_params)
 		@part = Part.new(part_params)
 		@part.save
-#		respond_to do |format|
-#			if @part.save
-#				format.html { redirect_to @part, notice: 'Part was successfully created.' }
-#				format.json { render :show, status: :created, location: @part }
-#			else
-#				format.html { render :new }
-#				format.json { render json: @part.errors, status: :unprocessable_entity }
-#			end
-#		end
 	end
 
   # PATCH/PUT /parts/1
@@ -60,6 +51,14 @@ class PartsController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+	def efetivar
+		@part = Part.find(params[:id])
+		@part.confirmacao = 1
+		if @part.save 
+			redirect_to parts_url, notice: "Parcela efetivado com sucesso."
+		end
+	end
 
   private
     # Use callbacks to share common setup or constraints between actions.

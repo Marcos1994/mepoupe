@@ -14,6 +14,12 @@ Rails.application.routes.draw do
 	devise_for :users
 	
 	delete 'home/index' => 'home#resetar'
+	
+	resources :parts do
+		member do
+			patch 'efetivar'
+		end
+	end
 
 	root "home#index" , as: "home"
 	# The priority is based upon order of creation: first created -> highest priority.
