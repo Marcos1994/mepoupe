@@ -34,7 +34,7 @@ color: rgb(76, 77, 78);
 font-family: "Corbel", "Consolas", "Broadway", "Bernard MT", "Arial";
 }
 
-input
+.field input
 {
 min-width: 200px;
 }
@@ -76,12 +76,54 @@ display: inline;
 text-decoration: none;
 color: #fff;
 background-color: rgb(77, 137, 193);
+border: 1px solid rgb(77, 137, 193);
 font-weight: bold;
+
+-webkit-transition-property: *;
+-webkit-transition-duration: 300ms;
+-webkit-transition-timing-function: ease-in;
+-webkit-transition-delay: 0ms;
+
+-moz-transition-property: *;
+-moz-transition-duration: 300ms;
+-moz-transition-timing-function: ease-in;
+-moz-transition-delay: 0ms;
+
+-o-transition-property: *;
+-o-transition-duration: 300ms;
+-o-transition-timing-function: ease-in;
+-o-transition-delay: 0ms;
+
+transition-property: *;
+transition-duration: 300ms;
+transition-timing-function: ease-in;
+transition-delay: 0ms;
 }
 	.botao:hover
 	{
-	background-color: rgb(202, 228, 249);
+	background-color: #fff;
+	border-radius: 8px;
 	color: rgb(77, 137, 193);
+
+	-webkit-transition-property: *;
+	-webkit-transition-duration: 100ms;
+	-webkit-transition-timing-function: ease-in;
+	-webkit-transition-delay: 0ms;
+
+	-moz-transition-property: *;
+	-moz-transition-duration: 100ms;
+	-moz-transition-timing-function: ease-in;
+	-moz-transition-delay: 0ms;
+
+	-o-transition-property: *;
+	-o-transition-duration: 100ms;
+	-o-transition-timing-function: ease-in;
+	-o-transition-delay: 0ms;
+
+	transition-property: *;
+	transition-duration: 100ms;
+	transition-timing-function: ease-in;
+	transition-delay: 0ms;
 	}
 
 .isolado
@@ -90,14 +132,14 @@ border-radius: 8px;
 padding: 5px 8px 5px 8px;
 display: line;
 text-align:center;
-color: rgb(77, 137, 193);
+color: #fff;
 border: 1px rgb(77, 137, 193) solid;
-background-color: #fff;
+background-color: rgb(77, 137, 193);
 }
 	.isolado:hover
 	{
-	color: #fff;
-	background-color: rgb(77, 137, 193);
+	color: rgb(77, 137, 193);
+	background-color: #fff;
 	}
 
 .vertical
@@ -178,7 +220,7 @@ float: left;
 nav ul li .botao
 {
 display: block;
-width: 152px;
+width: 150px;
 text-align: center;
 padding: 10px;
 font-size: 15px;
