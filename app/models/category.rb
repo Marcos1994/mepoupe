@@ -13,11 +13,31 @@ class Category < ActiveRecord::Base
 		@valor
 	end
 	
+	def valor_receita_efetivado
+		@valor = 0
+		self.entries.each do |e|
+			if(e.tipo == 1)
+				@valor += e.valor_efetivado
+			end
+		end
+		@valor
+	end
+	
 	def valor_despesa
 		@valor = 0
 		self.entries.each do |e|
 			if(e.tipo == 0)
 				@valor += e.valor
+			end
+		end
+		@valor
+	end
+	
+	def valor_despesa_efetivado
+		@valor = 0
+		self.entries.each do |e|
+			if(e.tipo == 0)
+				@valor += e.valor_efetivado
 			end
 		end
 		@valor
@@ -46,4 +66,5 @@ class Category < ActiveRecord::Base
 			@valor = 0
 		end
 	end
+	
 end
