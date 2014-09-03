@@ -8,9 +8,10 @@ class User < ActiveRecord::Base
 	
 	def saldo
 		@saldo = 0
-		current_user.categories.each do |cat|
-			@saldo += valor_receita_efetivado
-			@saldo -= valor_despesa_efetivado
+		categories.each do |cat|
+			@saldo += cat.valor_receita_efetivado
+			@saldo -= cat.valor_despesa_efetivado
 		end
+		@saldo
 	end
 end
