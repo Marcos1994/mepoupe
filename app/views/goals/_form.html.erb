@@ -27,10 +27,10 @@
     <p>Data de término:<p>
     <%= f.date_select :fim , {:order => [:day,:month, :year]}%><br>
   </div>
-  <div class="field">
+<!--  <div class="field">
     <p>Situação da meta:<p>
-    <%= f.number_field :estado %><br>
-  </div>
+    <%= f.select :estado ,([["Ativa", 1], ["Desativada", 0]]), {:prompt => 'Selecione o estado'} %><br>
+  </div> -->
   <div class="field">
     <p>Categoria da meta:<p>
     <%= f.collection_select(:category_id, current_user.categories.order(:titulo) , :id, :titulo , {:prompt => 'Selecione a categoria'} ) %><br>

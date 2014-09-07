@@ -5,7 +5,17 @@ class HomeController < ApplicationController
 			@category = Category.new(category_params)
 			@category.user = current_user
 			@category.save
+
 		end
+		
+		@goals = current_user.goals
+		
+		@goals.each do |g|
+			if g.estado == 1 && g.fim > Date.today
+				g.estado = 0
+			end
+		end
+		
 	end
 	
 	def resetar

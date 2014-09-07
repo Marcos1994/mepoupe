@@ -1,6 +1,6 @@
 class GoalsController < ApplicationController
   before_action :set_goal, only: [:show, :edit, :update, :destroy]
-
+  
   # GET /goals
   # GET /goals.json
   def index
@@ -26,18 +26,25 @@ class GoalsController < ApplicationController
   # POST /goals.json
   def create
     @goal = Goal.new(goal_params)
-
     @goal.user = current_user
 
-    respond_to do |format|
-      if @goal.save
+    if @goal.fim >= @goal.inicio
+      respond_to do |format|
+        if @goal.save
         format.html { redirect_to @goal, notice: 'Meta criada com sucesso!' }
         format.json { render :show, status: :created, location: @goal }
-      else
+        else
         format.html { render :new }
         format.json { render json: @goal.errors, status: :unprocessable_entity }
+        end
       end
+    else respond_to do |format|
+      format.html { render :new , notice: 'Data de inicio precisa ser maior que a data final da meta!'}
+      
+      end
+
     end
+
   end
 
   # PATCH/PUT /goals/1

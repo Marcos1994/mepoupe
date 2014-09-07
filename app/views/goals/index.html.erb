@@ -21,13 +21,17 @@
     <% @goals.each do |goal| %>
       <tr>
         <td><%= goal.titulo %></td>
-        <td class="cor"><div class="corCategoria" style="background-color: <#%= goal.category.cor %>;"></div></td>
+        <td class="cor"><div class="corCategoria" style="background-color: <%= goal.category.cor %>;"></div></td>
         <td><%= goal.descricao %></td>
         <td><%= goal.valor %> </td>
         <td><%= goal.inicio %></td>
         <td><%= goal.fim %></td>
-        <td><%= goal.estado %></td>
-        
+        <td><% if goal.estado == 1 %>
+              <p>Meta Ativa<p></td>
+                <%else%>
+                  <p>Meta Inativa<p></td>
+            <%end%>
+          
         <td><%= link_to 'Editar', edit_goal_path(goal), class: "botao isolado" %>
         <%= link_to 'Deletar', goal, method: :delete, data: { confirm: 'Tem certeza?' } , class: "botao isolado"%></td>
       </tr>
