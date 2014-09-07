@@ -40,13 +40,79 @@ class EntriesController < ApplicationController
 		if((entry_params[:periodicidade] != "1") || parcelas < 1)
 			parcelas = 1
 		end
-		
+
+
+    dt = Date.new(params[:data][:"data(1i)"].to_i, params[:data][:"data(2i)"].to_i, params[:data][:"data(3i)"].to_i)
+
+    x = 1
+
 		for i in (1..parcelas) do
-			params_part = { :valor => params[:valor], :data => Date.today, :confirmacao => params[:confirmacao], :entry_id => @entry.id }
+			params_part = { :valor => params[:valor], :confirmacao => params[:confirmacao], :entry_id => @entry.id }
 			#params_part = { :valor => params[:valor], :data => params[:data], :confirmacao => params[:confirmacao], :entry_id => @entry.id }
 			@part = Part.new(params_part)
+
+      if x > 1
+        dt = dt.change(day: 1)
+      end
+
+      mes = dt.month.to_i + 1
+      ano = dt.year.to_i + 1
+
+      if dt.month < 12 && x > 1
+        if dt.month == 1
+          dt = dt.change(month: 2)
+        elsif dt.month == 2
+          dt = dt.change(month: 3)
+        elsif dt.month == 3
+          dt = dt.change(month: 4)
+        elsif dt.month == 4
+          dt = dt.change(month: 5)
+        elsif dt.month == 5
+          dt = dt.change(month: 6)
+        elsif dt.month == 7
+          dt = dt.change(month: 8)
+        elsif dt.month == 8
+          dt = dt.change(month: 9)
+        elsif dt.month == 9
+          dt = dt.change(month: 10)
+        elsif dt.month == 10
+          dt = dt.change(month: 11)
+        elsif dt.month == 11
+          dt = dt.change(month: 12)
+        end
+      elsif dt.month == 12 && x > 1
+        mes = 1
+        dt = dt.change(month: 1)
+        dt = dt.change(year: ano)
+      else
+        if dt.month == 1
+          dt = dt.change(month: 2)
+        elsif dt.month == 2
+          dt = dt.change(month: 3)
+        elsif dt.month == 3
+          dt = dt.change(month: 4)
+        elsif dt.month == 4
+          dt = dt.change(month: 5)
+        elsif dt.month == 5
+          dt = dt.change(month: 6)
+        elsif dt.month == 7
+          dt = dt.change(month: 8)
+        elsif dt.month == 8
+          dt = dt.change(month: 9)
+        elsif dt.month == 9
+          dt = dt.change(month: 10)
+        elsif dt.month == 10
+          dt = dt.change(month: 11)
+        elsif dt.month == 11
+          dt = dt.change(month: 12)
+        end
+      end
+
+      @part.data = dt
+
 			@entry.parts << @part
-		end
+      x += 1
+    end
 		
 		respond_to do |format|
 		if @entry.save	#Salva o lançamento e todas as parcelas (autosave: true)
@@ -57,7 +123,8 @@ class EntriesController < ApplicationController
 			format.json { render json: @entry.errors, status: :unprocessable_entity }
 		end
 		end
-	end
+  end
+
 
   # PATCH/PUT /entries/1
   # PATCH/PUT /entries/1.json
