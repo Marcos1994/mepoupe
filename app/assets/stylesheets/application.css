@@ -130,6 +130,10 @@ text-align:center;
 color: #fff;
 border: 1px rgb(77, 137, 193) solid;
 background-color: rgb(77, 137, 193);
+margin-top: 10px;
+clear: both;
+float: left;
+box-shadow: 2px 2px 3px #ccc;
 }
 	.isolado:hover
 	{

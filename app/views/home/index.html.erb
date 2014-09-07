@@ -1,22 +1,37 @@
-<h3> Avisos </h3>
+<div id="colunaEsquerda">
+	<h2>Lançamentos pendentes</h2>
+	<table cellspacing="0px">
+		<thead>
+			<tr>
+				<th>Meta</th>
+				<th>Dias Restantes</th>
+			</tr>
+		</thead>
+		<tbody>
+		</tbody>
+	</table>
+</div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Meta</th>
-      <th>Dias Restantes</th>
-  </tr>
-  </thead>
-<tbody>
-    <% @goals.each do |goal| %>
-      <tr>
-        <td><%= goal.titulo %></td>
-        <td><%= goal.contaDias %></td>
-	  </tr>
-    <% end %>
-  </tbody>
-</table>
-		
+
+<div id="colunaDireita">
+	<h2>Andamento das metas</h2>
+	<table cellspacing="0px">
+		<thead>
+			<tr>
+				<th>Meta</th>
+				<th>Dias Restantes</th>
+			</tr>
+		</thead>
+		<tbody>
+		<% @goals.each do |goal| %>
+			<tr>
+				<td><%= goal.titulo %></td>
+				<td><%= goal.contaDias %></td>
+			</tr>
+		<% end %>
+		</tbody>
+	</table>
+</div>
 	
- <br/>
+
 <%= link_to "Resetar Registros", home_index_path, class: "botao isolado", method: :delete, data: { confirm: "Apagar.Confirma?" } %>
