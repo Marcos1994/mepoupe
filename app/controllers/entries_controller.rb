@@ -69,6 +69,8 @@ class EntriesController < ApplicationController
           dt = dt.change(month: 5)
         elsif dt.month == 5
           dt = dt.change(month: 6)
+        elsif dt.month == 6
+          dt = dt.change(month: 7)
         elsif dt.month == 7
           dt = dt.change(month: 8)
         elsif dt.month == 8
@@ -95,6 +97,8 @@ class EntriesController < ApplicationController
           dt = dt.change(month: 5)
         elsif dt.month == 5
           dt = dt.change(month: 6)
+        elsif dt.month == 6
+          dt = dt.change(month: 7)
         elsif dt.month == 7
           dt = dt.change(month: 8)
         elsif dt.month == 8
