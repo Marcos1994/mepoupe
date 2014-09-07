@@ -1,8 +1,5 @@
 //show de Lançamentos
 $('#renderParts').html('<%= escape_javascript render(@entry.parts) %>');
-//index e show de Categorias
-//$('#renderParts').html('<= render "entry_and_part", part: p >');
-alert("Lançamento efetivado com sucesso!");
 $('.valorPago').css('width', '<%= @entry.valor_razao_efetivado %>px');
 $('#valorEfetivado').html('<%= @entry.valor_efetivado %>');
 

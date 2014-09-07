@@ -24,12 +24,12 @@
 			</tr>
 		</thead>
 
-		<tbody>
-			<% @category.lancamentos_mes(Date.today).each do |e| %>
-				<% e.parcelas_mes(Date.today).each do |p| %>
-					<%= render "entry_and_part", part: p %>
-				<% end %>
+		<tbody id="catShow">
+		<% @category.lancamentos_mes(Date.today).each do |e| %>
+			<% e.parcelas_mes(Date.today).each do |p| %>
+				<%= render "entry_and_part", p: p, e: e %>
 			<% end %>
+		<% end %>
 		</tbody>
 	</table>
 </div>

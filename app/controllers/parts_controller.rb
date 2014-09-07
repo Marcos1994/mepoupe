@@ -33,7 +33,7 @@ class PartsController < ApplicationController
   def update
     respond_to do |format|
       if @part.update(part_params)
-        format.html { redirect_to @part, notice: 'Part was successfully updated.' }
+        format.html { redirect_to @part, notice: 'Parcela atualizada com sucesso.' }
         format.json { render :show, status: :ok, location: @part }
       else
         format.html { render :edit }
