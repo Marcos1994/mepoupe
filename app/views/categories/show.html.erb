@@ -13,7 +13,7 @@
 </div>
 
 <div id="colunaDireita">
-	<h2>Lançamentos deste mês</h2>
+	<h2>Lançamentos neste mês</h2>
 	<table id="tabelaLancamento" cellspacing="0">
 		<thead>
 			<tr>
@@ -25,26 +25,9 @@
 		</thead>
 
 		<tbody>
-			<% @category.lancamentos_mes(Date.today).each do |entry| %>
-				<% entry.parcelas_mes(Date.today).each do |p| %>
-					<tr>
-						<td>
-							<% if entry.tipo == 0 %>
-								<div class="despesa">Despesa</div>
-							<% else %>
-								<div class="receita">Receita</div>
-							<%end%>
-						</td>
-						<td><%= link_to entry.titulo, entry %> </td>
-						<td class="valor">R$ <%= p.valor %></td>
-						<td>
-							<% if (p.confirmacao != 1) %>
-								<%= button_to "Efetivar!", efetivar_part_path(p), method: :patch, remote: true %>
-							<% else %>
-								Efetivado
-							<% end %>
-						</td>
-					</tr>
+			<% @category.lancamentos_mes(Date.today).each do |e| %>
+				<% e.parcelas_mes(Date.today).each do |p| %>
+					<%= render "entry_and_part", part: p %>
 				<% end %>
 			<% end %>
 		</tbody>

@@ -17,9 +17,9 @@
         <td class="cor"><div class="corCategoria" style="background-color: <%= category.cor %>;"></div></td>
         <td class="titulo"><%= link_to category.titulo, category %></td>
         <td class="descricao"><%= truncate(strip_tags(category.descricao), length: 80) %></td>
-        <td>R$<%= category.valor_receita_mes(Date.today) %></td>
+        <td class="valorReceita">R$<%= category.valor_receita_mes(Date.today) %></td>
         <td><%= number_with_precision(category.valor_razao_receita_mes(Date.today), precision: 1) %>%</td>
-        <td>R$<%= category.valor_despesa_mes(Date.today) %></td>
+        <td class="valorDespesa">R$<%= category.valor_despesa_mes(Date.today) %></td>
         <td><%= number_with_precision(category.valor_razao_despesa_mes(Date.today), precision: 1) %>%</td>
       </tr>
     <% end %>

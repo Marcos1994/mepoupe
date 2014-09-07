@@ -20,6 +20,19 @@ class Category < ActiveRecord::Base
 		@entries
 	end
 	
+	def lancamentos_ate_mes(data)
+		@entries = []
+		self.entries.each do |e|
+			e.parts.each do |p|
+				if((p.data.month <= data.month) && (p.data.year <= data.year))
+					@entries << e
+					break
+				end
+			end
+		end
+		@entries
+	end
+	
 	
 	
 	#---Receita---#

@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
 	def lancamentos_para_efetivar
 		@entries = []
 		self.categories.each do |c|
-			c.lancamentos_mes(Date.today).each do |e|
+			c.lancamentos_ate_mes(Date.today).each do |e|
 				if(e.mes_nao_efetivado(Date.today))
 					@entries << e
 				end

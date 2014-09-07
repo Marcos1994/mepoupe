@@ -1,0 +1,18 @@
+<tr>
+	<td>
+		<% if part.entry.tipo == 0 %>
+			<div class="despesa">Despesa</div>
+		<% else %>
+			<div class="receita">Receita</div>
+		<%end%>
+	</td>
+	<td><%= link_to truncate(strip_tags(part.entry.titulo), length: 30), part.entry %> </td>
+	<td class="valor">R$ <%= part.entry.valor %></td>
+	<td>
+		<% if (part.confirmacao != 1) %>
+			<%= button_to "Efetivar!", efetivar_part_path(part), method: :patch, remote: true %>
+		<% else %>
+			Efetivado
+		<% end %>
+	</td>
+</tr>
