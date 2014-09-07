@@ -3,11 +3,36 @@
 	<table cellspacing="0px">
 		<thead>
 			<tr>
-				<th>Meta</th>
-				<th>Dias Restantes</th>
+				<th colspan="2">Titulo</th>
+				<th>Valor</th>
+				<th>Estado</th>
 			</tr>
 		</thead>
 		<tbody>
+			<% current_user.lancamentos_para_efetivar.each do |e| %>
+				<% e.parcelas_ate_mes(Date.today).each do |p| %>
+					<% if(p.confirmacao != 1) %>
+						<tr>
+							<td>
+								<% if e.tipo == 0 %>
+									<div class="despesa">Despesa</div>
+								<% else %>
+									<div class="receita">Receita</div>
+								<%end%>
+							</td>
+							<td><%= link_to e.titulo, e %> </td>
+							<td class="valor">R$ <%= p.valor %></td>
+							<td>
+								<% if (p.confirmacao != 1) %>
+									<%= button_to "Efetivar!", efetivar_part_path(p), method: :patch, remote: true %>
+								<% else %>
+									Efetivado
+								<% end %>
+							</td>
+						</tr>
+					<% end %>
+				<% end %>
+			<% end %>
 		</tbody>
 	</table>
 </div>

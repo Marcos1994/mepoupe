@@ -3,6 +3,10 @@ class Category < ActiveRecord::Base
 	belongs_to :user
 	has_many :goals
 	
+	
+	
+	#---Lançamentos---#
+	
 	def lancamentos_mes(data)
 		@entries = []
 		self.entries.each do |e|
@@ -30,6 +34,30 @@ class Category < ActiveRecord::Base
 		@valor
 	end
 	
+	def valor_receita_mes(data)
+		@valor = 0
+		self.entries.each do |e|
+			if(e.tipo == 1)
+				e.parcelas_mes(data).each do |p|
+					@valor += p.valor
+				end
+			end
+		end
+		@valor
+	end
+	
+	def valor_razao_receita_mes(data)
+		val = 0
+		self.user.categories.each do |c|
+			val += c.valor_receita_mes(data)
+		end
+		if(val != 0)
+			@valor = (self.valor_receita_mes(data) * 100)/val
+		else
+			@valor = 0
+		end
+	end
+	
 	def valor_receita_efetivado
 		@valor = 0
 		self.entries.each do |e|
@@ -38,18 +66,6 @@ class Category < ActiveRecord::Base
 			end
 		end
 		@valor
-	end
-	
-	def valor_razao_receita
-		val = 0
-		self.user.categories.each do |c|
-			val += c.valor_receita
-		end
-		if(val != 0)
-			@valor = (self.valor_receita * 100)/val
-		else
-			@valor = 0
-		end
 	end
 	
 	
@@ -66,11 +82,13 @@ class Category < ActiveRecord::Base
 		@valor
 	end
 	
-	def valor_despesa_efetivado
+	def valor_despesa_mes(data)
 		@valor = 0
 		self.entries.each do |e|
 			if(e.tipo == 0)
-				@valor += e.valor_efetivado
+				e.parcelas_mes(data).each do |p|
+					@valor += p.valor
+				end
 			end
 		end
 		@valor
@@ -86,6 +104,28 @@ class Category < ActiveRecord::Base
 		else
 			@valor = 0
 		end
+	end
+	
+	def valor_razao_despesa_mes(data)
+		val = 0
+		self.user.categories.each do |c|
+			val += c.valor_despesa_mes(data)
+		end
+		if(val != 0)
+			@valor = (self.valor_despesa_mes(data) * 100)/val
+		else
+			@valor = 0
+		end
+	end
+	
+	def valor_despesa_efetivado
+		@valor = 0
+		self.entries.each do |e|
+			if(e.tipo == 0)
+				@valor += e.valor_efetivado
+			end
+		end
+		@valor
 	end
 	
 end

@@ -2,6 +2,35 @@ class Entry < ActiveRecord::Base
 	has_many :parts, dependent: :destroy, autosave: true
 	belongs_to :category
 	
+	def parcelas_mes(data)
+		@parts = []
+		self.parts.each do |p|
+			if((p.data.month == data.month) && (p.data.year == data.year))
+				@parts << p
+			end
+		end
+		@parts
+	end
+	
+	def parcelas_ate_mes(data)
+		@parts = []
+		self.parts.each do |p|
+			if((p.data.month <= data.month) && (p.data.year <= data.year))
+				@parts << p
+			end
+		end
+		@parts
+	end
+	
+	def mes_nao_efetivado(data)
+		self.parts.each do |p|
+			if((p.data.month <= data.month) && (p.data.year <= data.year) && (p.confirmacao == 0))
+				return true
+			end
+		end
+		return false
+	end
+	
 	def valor
 		@valor = 0
 		self.parts.each do |p|

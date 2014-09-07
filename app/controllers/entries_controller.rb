@@ -8,9 +8,9 @@ class EntriesController < ApplicationController
 		@entries = nil
 		cat = current_user.categories
 		if(cat.length >= 1)
-			@entries = cat[0].entries
+			@entries = cat[0].lancamentos_mes(Date.today)
 			for i in (2..cat.length) do
-				@entries += cat[i-1].entries
+				@entries += cat[i-1].lancamentos_mes(Date.today)
 			end
 		end
 		@entries
