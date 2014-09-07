@@ -3,6 +3,23 @@ class Category < ActiveRecord::Base
 	belongs_to :user
 	has_many :goals
 	
+	def lancamentos_mes(data)
+		@entries = []
+		self.entries.each do |e|
+			e.parts.each do |p|
+				if((p.data.month == data.month) && (p.data.year == data.year))
+					@entries << e
+					break
+				end
+			end
+		end
+		@entries
+	end
+	
+	
+	
+	#---Receita---#
+	
 	def valor_receita
 		@valor = 0
 		self.entries.each do |e|
@@ -23,6 +40,22 @@ class Category < ActiveRecord::Base
 		@valor
 	end
 	
+	def valor_razao_receita
+		val = 0
+		self.user.categories.each do |c|
+			val += c.valor_receita
+		end
+		if(val != 0)
+			@valor = (self.valor_receita * 100)/val
+		else
+			@valor = 0
+		end
+	end
+	
+	
+	
+	#---Despesa---#
+	
 	def valor_despesa
 		@valor = 0
 		self.entries.each do |e|
@@ -41,18 +74,6 @@ class Category < ActiveRecord::Base
 			end
 		end
 		@valor
-	end
-	
-	def valor_razao_receita
-		val = 0
-		self.user.categories.each do |c|
-			val += c.valor_receita
-		end
-		if(val != 0)
-			@valor = (self.valor_receita * 100)/val
-		else
-			@valor = 0
-		end
 	end
 	
 	def valor_razao_despesa

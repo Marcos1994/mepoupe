@@ -23,7 +23,7 @@
 		</thead>
 
 		<tbody>
-			<% @category.entries.each do |entry| %>
+			<% @category.entries.lancamentos_mes(Date.today).each do |entry| %>
 				<tr>
 					<td>
 						<% if entry.tipo == 0 %>
