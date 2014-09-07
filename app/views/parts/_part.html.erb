@@ -1,5 +1,5 @@
 <tr>
-	<td><%= link_to ("R$ " + part.valor.to_s), part %></td>
+	<td><%= link_to ("R$ " + part.valor.to_s), edit_part_path(part) %></td>
 	<td><%= part.data %></td>
 	<td>
 		<% if (part.confirmacao != 1) %>

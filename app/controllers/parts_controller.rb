@@ -34,7 +34,7 @@ class PartsController < ApplicationController
     respond_to do |format|
       if @part.update(part_params)
         format.html { redirect_to @part, notice: 'Parcela atualizada com sucesso.' }
-        format.json { render :show, status: :ok, location: @part }
+        format.json { render :show, status: :ok, location: @part.entry }
       else
         format.html { render :edit }
         format.json { render json: @part.errors, status: :unprocessable_entity }

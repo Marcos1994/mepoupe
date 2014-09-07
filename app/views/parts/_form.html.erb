@@ -20,10 +20,10 @@
 		<%= f.label :data %><br>
 		<%= f.date_select :data %>
 	</div>
-	
+		
 	<div class="field">
-		<%= f.label :confirmacao %><br>
-		<%= f.number_field :confirmacao %>
+		<%= label_tag :confirmacao %><br/>
+		<%= select_tag :confirmacao, options_for_select([["Efetivado", 1], ["Nao efetivado", 0]]) %>
 	</div>
 	
 	<div class="actions">
