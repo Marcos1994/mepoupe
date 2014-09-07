@@ -31,6 +31,10 @@
 	<p><%= @entry.descricao %></p>
 
 	<br/>
+	<% if(@entry.periodicidade == 2) %>
+		<%= button_to "Desativar", desativar_entry_path(@entry), method: :patch, data: { confirm: "Deseja desativar este lancamento?" } %>
+		<br/>
+	<% end %>
 	
 	<%= link_to "Voltar", entries_path %> |
 	<%= link_to "Editar", edit_entry_path(@entry) %> |

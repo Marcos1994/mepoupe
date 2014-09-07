@@ -29,9 +29,23 @@ class EntriesController < ApplicationController
   # GET /entries/1/edit
   def edit
   end
+  
+	def desativar
+		@entry = Entry.find(params[:id])
+		@entry.periodicidade = 0
+		respond_to do |format|
+			if @entry.save
+				format.html { redirect_to @entry, notice: 'Entry was successfully updated.' }
+				format.json { render :show, status: :ok, location: @entry }
+			else
+				format.html { render :edit }
+				format.json { render json: @entry.errors, status: :unprocessable_entity }
+			end
+		end
+	end
 
-  # POST /entries
-  # POST /entries.json
+	# POST /entries
+	# POST /entries.json
 	def create
 		entry_val = { :titulo => params[:titulo], :tipo => entry_params[:tipo], :category_id => entry_params[:category_id], :periodicidade => entry_params[:periodicidade], :descricao => entry_params[:descricao]}
 		@entry = Entry.new(entry_val)

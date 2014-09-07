@@ -20,6 +20,12 @@ Rails.application.routes.draw do
 			patch 'efetivar'
 		end
 	end
+	
+	resources :entries do
+		member do
+			patch 'desativar'
+		end
+	end
 
 	root "home#index" , as: "home"
 	# The priority is based upon order of creation: first created -> highest priority.
