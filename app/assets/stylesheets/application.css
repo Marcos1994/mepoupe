@@ -42,11 +42,13 @@ resize: none;
 table
 {
 width: 100%;
+z-index: 10;
 }
 
 table th, table td
 {
 padding: 5px;
+z-index: 11;
 }
 
 .valorReceita { color: green }
@@ -207,7 +209,7 @@ nav
 {
 position: absolute;
 top: 105px;
-z-index: 10;
+z-index: 100;
 }
 
 nav ul, nav ol
@@ -235,11 +237,17 @@ margin-right: 10px;
 
 nav ul li ol
 {
+z-index: 100;
 height: 0px;
 overflow: hidden;
+background-color: rgba(204, 204, 204, 0.4);
+border-radius: 5px 5px 5px 5px;
+width: 172px;
 }
 	nav ul li:hover ol
 	{ height: auto; }
+	nav ul li ol:hover
+	{ border-radius: 0px 0px 8px 8px; }
 
 nav ul li ol .botao
 {
@@ -253,15 +261,20 @@ color: rgb(77, 137, 193);
 	nav ul li ol .botao:hover
 	{
 	border-radius: 0px;
-	width: 140px;
+	padding-left: 17px;
+	padding-right: 18px;
 	}
 
 nav ul li ol li
 {
 width: 160px;
-border: 5px rgba(0,0,0,0) solid;
+/*border: 5px rgba(100,0,0,1) solid;*/
+margin: 0px auto;
+margin-bottom: 10px;
 float: none;
 }
+	nav ul li ol li:nth-child(1)
+	{ margin-top: 10px; }
 
 
 /*--- Corpo ---*/

@@ -27,16 +27,22 @@
 			<ul>
 				<li>
 					<%= link_to "Inicio", home_path, class: "botao" %>
+					<ol>
+						<li><%= link_to "Resetar Registros", home_index_path, class: "botao", method: :delete, data: { confirm: "Categorias, Lançamentos e Metas serão apagados!\nDeseja prosseguir?" } %></li>
+					</ol>
 				</li>
 				<li>
 					<%= link_to "Categorias", categories_path, class: "botao" %>
+					<ol>
+						<li><%= link_to "Mostrar Todas", categories_path, class: "botao" %></li>
+						<li><%= link_to "Nova Categoria", new_category_path, class: "botao" %></li>
+					</ol>
 				</li>
 				<li>
 					<%= link_to "Lançamentos", entries_path, class: "botao" %>
 					<ol>
-						<li><%= link_to "Lançamentos", entries_path, class: "botao" %></li>
-						<li><%= link_to "Lançamentos", entries_path, class: "botao" %></li>
-						<li><%= link_to "Lançamentos", entries_path, class: "botao" %></li>
+						<li><%= link_to "Lançamentos do Mês", entries_path, class: "botao" %></li>
+						<li><%= link_to "Novo Lançamentos", new_entry_path, class: "botao" %></li>
 					</ol>
 				</li>
 				<li>
