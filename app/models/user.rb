@@ -6,6 +6,10 @@ class User < ActiveRecord::Base
 	has_many :categories
 	has_many :goals
 	
+	
+	
+	#tipo da saida:		Entry[]
+	#saida: mostra os lancamentos nao efetivados ate a data atual
 	def lancamentos_para_efetivar
 		@entries = []
 		self.categories.each do |c|
@@ -18,6 +22,10 @@ class User < ActiveRecord::Base
 		@entries
 	end
 	
+	
+	
+	#tipo da saida:		float
+	#saida: mostra o saldo do usuario (receitasEfetivadas - despesasEfetivadas)
 	def saldo
 		@saldo = 0
 		self.categories.each do |cat|
@@ -27,6 +35,11 @@ class User < ActiveRecord::Base
 		@saldo
 	end
 	
+	
+	
+	#tipo da entrada:	Date
+	#tipo da saida:		double
+	#saida: retorna a receita total do mes de 'data'
 	def receita_mes(data)
 		@valor = 0
 		self.categories.each do |c|
@@ -35,6 +48,11 @@ class User < ActiveRecord::Base
 		@valor
 	end
 	
+	
+	
+	#tipo da entrada:	Date
+	#tipo da saida:		double
+	#saida: retorna a despesa total do mes de 'data'
 	def despesa_mes(data)
 		@valor = 0
 		self.categories.each do |c|

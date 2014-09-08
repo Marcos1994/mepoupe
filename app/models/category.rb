@@ -4,6 +4,11 @@ class Category < ActiveRecord::Base
 	has_many :goals
 	
 	
+	
+	#tipo da saida:		string
+	#saida: sequencia de 10 pares cartesianos separados por virgulas entre si e espacos entre os outros
+	#		os pontos sao referentes aa variacao no valor das receitas durante os 10 ultimos meses
+	#		os pontos vao de 0,200 a 540,0 onde 200 eh o Y minimo e 540 eh o X mais antigo
 	def gerar_pontos_receita
 		@pontos = ''
 		data = Date.today
@@ -15,6 +20,11 @@ class Category < ActiveRecord::Base
 	end
 	
 	
+	
+	#tipo da saida:		string
+	#saida: sequencia de 10 pares cartesianos separados por virgulas entre si e espacos entre os outros
+	#		os pontos sao referentes aa variacao no valor das despesas durante os 10 ultimos meses
+	#		os pontos vao de 0,200 a 540,0 onde 200 eh o Y minimo e 540 eh o X mais antigo
 	def gerar_pontos_despesa
 		@pontos = ''
 		data = Date.today
@@ -25,8 +35,13 @@ class Category < ActiveRecord::Base
 		@pontos
 	end
 	
+	
+	
 	#---Lançamentos---#
 	
+	#tipo da entrada:	Date
+	#tipo da saida:		Entry[]
+	#saida: retorna uma colecao contendo os lancamentos desta categodia no mes de 'data'
 	def lancamentos_mes(data)
 		@entries = []
 		self.entries.each do |e|
@@ -40,6 +55,11 @@ class Category < ActiveRecord::Base
 		@entries
 	end
 	
+	
+	
+	#tipo da entrada:	Date
+	#tipo da saida:		Entry[]
+	#saida: retorna uma colecao contendo os lancamentos desta categodia ate o mes de 'data'
 	def lancamentos_ate_mes(data)
 		@entries = []
 		self.entries.each do |e|
@@ -57,6 +77,8 @@ class Category < ActiveRecord::Base
 	
 	#---Receita---#
 	
+	#tipo da saida:		double
+	#saida: retorna a soma de todas as receitas desta categoria
 	def valor_receita
 		@valor = 0
 		self.entries.each do |e|
@@ -67,6 +89,11 @@ class Category < ActiveRecord::Base
 		@valor
 	end
 	
+	
+	
+	#tipo da entrada:	Date
+	#tipo da saida:		double
+	#saida: retorna a soma da receita total desta categoria no mes de 'data'
 	def valor_receita_mes(data)
 		@valor = 0
 		self.entries.each do |e|
@@ -79,6 +106,11 @@ class Category < ActiveRecord::Base
 		@valor
 	end
 	
+	
+	
+	#tipo da entrada:	Date
+	#tipo da saida:		double
+	#saida: retorna a porcentagem do valor da receita total desta categoria em relacao aas outras no mes de 'data'
 	def valor_razao_receita_mes(data)
 		val = 0
 		self.user.categories.each do |c|
@@ -91,6 +123,10 @@ class Category < ActiveRecord::Base
 		end
 	end
 	
+	
+	
+	#tipo da saida:		double
+	#saida: retorna a soma de todas as receitas efetivadas desta categoria
 	def valor_receita_efetivado
 		@valor = 0
 		self.entries.each do |e|
@@ -105,6 +141,8 @@ class Category < ActiveRecord::Base
 	
 	#---Despesa---#
 	
+	#tipo da saida:		double
+	#saida: retorna a soma de todas as despesas desta categoria
 	def valor_despesa
 		@valor = 0
 		self.entries.each do |e|
@@ -115,6 +153,11 @@ class Category < ActiveRecord::Base
 		@valor
 	end
 	
+	
+	
+	#tipo da entrada:	Date
+	#tipo da saida:		double
+	#saida: retorna a soma da despesa total desta categoria no mes de 'data'
 	def valor_despesa_mes(data)
 		@valor = 0
 		self.entries.each do |e|
@@ -127,6 +170,11 @@ class Category < ActiveRecord::Base
 		@valor
 	end
 	
+	
+	
+	#tipo da entrada:	a
+	#tipo da saida:		a
+	#saida: a
 	def valor_razao_despesa
 		val = 0
 		self.user.categories.each do |c|
@@ -139,6 +187,11 @@ class Category < ActiveRecord::Base
 		end
 	end
 	
+	
+	
+	#tipo da entrada:	Date
+	#tipo da saida:		double
+	#saida: retorna a porcentagem do valor da despesa total desta categoria em relacao aas outras no mes de 'data'
 	def valor_razao_despesa_mes(data)
 		val = 0
 		self.user.categories.each do |c|
@@ -151,6 +204,10 @@ class Category < ActiveRecord::Base
 		end
 	end
 	
+	
+	
+	#tipo da saida:		double
+	#saida: retorna a soma de todas as despesas efetivadas desta categoria
 	def valor_despesa_efetivado
 		@valor = 0
 		self.entries.each do |e|
