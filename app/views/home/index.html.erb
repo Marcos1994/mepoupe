@@ -8,14 +8,8 @@
 				<th>Estado</th>
 			</tr>
 		</thead>
-		<tbody>
-			<% current_user.lancamentos_para_efetivar.each do |e| %>
-				<% e.parcelas_ate_mes(Date.today).each do |p| %>
-					<% if(p.confirmacao != 1) %>
-						<%= render "entry_and_part", p: p, e: e %>
-					<% end %>
-				<% end %>
-			<% end %>
+		<tbody id="entryAndPartHome">
+			<%= render "entry_and_part" %>
 		</tbody>
 	</table>
 </div>

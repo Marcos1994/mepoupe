@@ -1,18 +1,24 @@
-<tr>
-	<td>
-		<% if e.tipo == 0 %>
-			<div class="despesa">Despesa</div>
-		<% else %>
-			<div class="receita">Receita</div>
-		<%end%>
-	</td>
-	<td><%= link_to truncate(strip_tags(e.titulo), length: 30), e %> </td>
-	<td class="valor">R$ <%= p.entry.valor %></td>
-	<td>
-		<% if (p.confirmacao != 1) %>
-			<%= button_to "Efetivar!", efetivar_part_path(p), method: :patch, remote: true %>
-		<% else %>
-			Efetivado
+<% current_user.lancamentos_para_efetivar.each do |e| %>
+	<% e.parcelas_ate_mes(Date.today).each do |p| %>
+		<% if(p.confirmacao != 1) %>
+			<tr>
+				<td>
+					<% if e.tipo == 0 %>
+						<div class="despesa">Despesa</div>
+					<% else %>
+						<div class="receita">Receita</div>
+					<%end%>
+				</td>
+				<td><%= link_to truncate(strip_tags(e.titulo), length: 30), e %> </td>
+				<td class="valor">R$ <%= p.entry.valor %></td>
+				<td>
+					<% if (p.confirmacao != 1) %>
+						<%= button_to "Efetivar!", efetivar_part_path(p), method: :patch, remote: true %>
+					<% else %>
+						Efetivado
+					<% end %>
+				</td>
+			</tr>
 		<% end %>
-	</td>
-</tr>
+	<% end %>
+<% end %>
