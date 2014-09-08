@@ -100,30 +100,6 @@ class EntriesController < ApplicationController
         mes = 1
         dt = dt.change(month: 1)
         dt = dt.change(year: ano)
-      else
-        if dt.month == 1
-          dt = dt.change(month: 2)
-        elsif dt.month == 2
-          dt = dt.change(month: 3)
-        elsif dt.month == 3
-          dt = dt.change(month: 4)
-        elsif dt.month == 4
-          dt = dt.change(month: 5)
-        elsif dt.month == 5
-          dt = dt.change(month: 6)
-        elsif dt.month == 6
-          dt = dt.change(month: 7)
-        elsif dt.month == 7
-          dt = dt.change(month: 8)
-        elsif dt.month == 8
-          dt = dt.change(month: 9)
-        elsif dt.month == 9
-          dt = dt.change(month: 10)
-        elsif dt.month == 10
-          dt = dt.change(month: 11)
-        elsif dt.month == 11
-          dt = dt.change(month: 12)
-        end
       end
 
       @part.data = dt
