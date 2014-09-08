@@ -15,6 +15,8 @@ Rails.application.routes.draw do
 	
 	delete 'home/index' => 'home#resetar'
 	
+	get 'entry/index' => 'entries#all'
+	
 	resources :parts do
 		member do
 			patch 'efetivar'

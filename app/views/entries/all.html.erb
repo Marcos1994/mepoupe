@@ -1,0 +1,53 @@
+<h1>Todos os Lançamentos</h1>
+
+<table id="tabelaLancamento" cellspacing="0">
+	<thead>
+		<tr>
+			<th id="tipo">Tipo</th>
+			<th id="cat">Categ.</th>
+			<th id="titulo">Titulo</th>
+			<th>Valor total</th>
+			<th>Andamento</th>
+			<th id="period">Periodicidade</th>
+			<th>Data</th>
+		</tr>
+	</thead>
+
+	<tbody>
+		<% @entries.each do |entry| %>
+			<tr>
+				<td>
+					<% if entry.tipo == 0 %>
+						<div class="despesa">Despesa</div>
+					<% else %>
+						<div class="receita">Receita</div>
+					<%end%>
+				</td>
+				<td class="cor"><div class="corCategoria" style="background-color: <%= entry.category.cor %>;"></div></td>
+				<td><%= link_to truncate(strip_tags(entry.titulo), length: 30), entry %> </td>
+				<td class="valor">R$ <%= entry.valor %></td>
+				<td class="barra">
+					<div class="valorBarra">
+						<div class="valorPago" style="width: <%= entry.valor_razao_efetivado %>px; background-color: <%= entry.category.cor %>;"></div>
+					</div>
+				</td>
+				<td style="text-align: center;">
+					<% if entry.periodicidade == 0 %>
+						Avulsa
+					<% else %>
+						<% if entry.periodicidade == 1 %>
+							Parcelada
+						<% else %>
+							Fixa
+						<% end %>
+					<% end %>
+				</td>
+				<td style="text-align: center;"><%= entry.parts[0].data %></td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>
+
+<br>
+
+<%= link_to 'Novo lançamento', new_entry_path, class: "botao isolado" %>

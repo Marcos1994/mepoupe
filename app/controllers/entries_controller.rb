@@ -15,6 +15,18 @@ class EntriesController < ApplicationController
 		end
 		@entries
 	end
+	
+	def all
+		@entries = nil
+		cat = current_user.categories
+		if(cat.length >= 1)
+			@entries = cat[0].entries
+			for i in (2..cat.length) do
+				@entries += cat[i-1].entries
+			end
+		end
+		@entries
+	end
 
   # GET /entries/1
   # GET /entries/1.json
