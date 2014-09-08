@@ -1,9 +1,10 @@
-<div id="colunaEsquerda">
+<div id="colunaEsquerda" style="width: 500px;">
 	<h2>Lançamentos pendentes</h2>
 	<table cellspacing="0px">
 		<thead>
 			<tr>
 				<th colspan="2">Titulo</th>
+				<th>Data</th>
 				<th>Valor</th>
 				<th>Estado</th>
 			</tr>
@@ -15,7 +16,7 @@
 </div>
 
 
-<div id="colunaDireita">
+<div id="colunaDireita" style="width: 390px;">
 	<h2>Andamento das metas</h2>
 	<table cellspacing="0px">
 		<thead>
@@ -34,6 +35,6 @@
 		</tbody>
 	</table>
 </div>
-	
 
-<%= link_to "Resetar Registros", home_index_path, class: "botao isolado", method: :delete, data: { confirm: "Apagar.Confirma?" } %>
+
+<%= link_to "Resetar Registros", home_index_path, class: "botao isolado", method: :delete, data: { confirm: "Categorias, Lançamentos e Metas serão apagados!\nDeseja prosseguir?" } %>

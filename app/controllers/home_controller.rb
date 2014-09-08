@@ -10,24 +10,11 @@ class HomeController < ApplicationController
 		
 		@goals = current_user.goals
 		
-		@goals.each do |g|
-			if g.estado == 1 && g.fim > Date.today
-				g.estado = 0
-			end
-		end
-		
 	end
 	
 	def resetar
 		current_user.categories.destroy_all
-		#@categorias = current_user.categories
-		#@categorias.each do |cat|
-		#	@lancamentos = Entry.find(:all, :conditions => 'category_id = ' + cat.id.to_s)
-		#	@lancamentos.each do |lanc|
-		#		lanc.destroy
-		#	end
-		#	cat.destroy
-		#end
+		current_user.goals.destroy_all
 		respond_to do |format|
 			  format.html { redirect_to home_index_url }
 			  format.json { head :no_content }
