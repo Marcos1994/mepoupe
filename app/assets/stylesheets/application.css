@@ -206,10 +206,11 @@ text-decoration: none;
 nav
 {
 position: absolute;
-bottom: 0px;
+top: 105px;
+z-index: 10;
 }
 
-nav ul
+nav ul, nav ol
 {
 list-style: none;
 }
@@ -231,6 +232,36 @@ margin-right: 10px;
 }
 	nav ul li:nth-child(5) .botao
 	{ margin-right: 0px; }
+
+nav ul li ol
+{
+height: 0px;
+overflow: hidden;
+}
+	nav ul li:hover ol
+	{ height: auto; }
+
+nav ul li ol .botao
+{
+width: 120px;
+margin: 0px auto;
+padding-top: 5px;
+padding-bottom: 5px;
+background-color: #fff;
+color: rgb(77, 137, 193);
+}
+	nav ul li ol .botao:hover
+	{
+	border-radius: 0px;
+	width: 140px;
+	}
+
+nav ul li ol li
+{
+width: 160px;
+border: 5px rgba(0,0,0,0) solid;
+float: none;
+}
 
 
 /*--- Corpo ---*/

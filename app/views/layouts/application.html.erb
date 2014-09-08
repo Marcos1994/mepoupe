@@ -25,11 +25,26 @@
 		
 		<nav>
 			<ul>
-				<li><%= link_to "Inicio", home_path, class: "botao" %></li>
-				<li><%= link_to "Categorias", categories_path, class: "botao" %></li>
-				<li><%= link_to "Lançamentos", entries_path, class: "botao" %></li>
-				<li><%= link_to "Metas", goals_path, class: "botao" %></li>
-				<li><%= link_to "Relatórios", report_index_path, class: "botao" %></li>
+				<li>
+					<%= link_to "Inicio", home_path, class: "botao" %>
+				</li>
+				<li>
+					<%= link_to "Categorias", categories_path, class: "botao" %>
+				</li>
+				<li>
+					<%= link_to "Lançamentos", entries_path, class: "botao" %>
+					<ol>
+						<li><%= link_to "Lançamentos", entries_path, class: "botao" %></li>
+						<li><%= link_to "Lançamentos", entries_path, class: "botao" %></li>
+						<li><%= link_to "Lançamentos", entries_path, class: "botao" %></li>
+					</ol>
+				</li>
+				<li>
+					<%= link_to "Metas", goals_path, class: "botao" %>
+				</li>
+				<li>
+					<%= link_to "Relatórios", report_index_path, class: "botao" %>
+				</li>
 			</ul>
 		</nav>
 	<% end %>
