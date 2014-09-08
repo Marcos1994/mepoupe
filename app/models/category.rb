@@ -7,8 +7,8 @@ class Category < ActiveRecord::Base
 	def gerar_pontos_receita
 		@pontos = ''
 		data = Date.today
-		for i in 0..12 do
-			@pontos += (66 * i).to_s + ',' + (200 - (self.valor_razao_receita_mes(data)*2)).to_s + ' '
+		for i in 0..9 do
+			@pontos += (60 * i).to_s + ',' + (200 - (self.valor_razao_receita_mes(data)*2)).to_s + ' '
 			data = data - 1.months
 		end
 		@pontos
@@ -18,8 +18,8 @@ class Category < ActiveRecord::Base
 	def gerar_pontos_despesa
 		@pontos = ''
 		data = Date.today
-		for i in 0..12 do
-			@pontos += (66 * i).to_s + ',' + (200 - (self.valor_razao_despesa_mes(data)*2)).to_s + ' '
+		for i in 0..9 do
+			@pontos += (60 * i).to_s + ',' + (200 - (self.valor_razao_despesa_mes(data)*2)).to_s + ' '
 			data = data - 1.months
 		end
 		@pontos
