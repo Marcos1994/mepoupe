@@ -1,11 +1,14 @@
 <h1>Relatórios</h1>
 
+<h2>Distribuição das receitas nos ultimos 12 meses</h2>
 <table id="relatorioTab" cellspacing="0px">
 	<tr>
 		<td>100%</td>
 		<td rowspan="10">
 			<div id="relatorio">
-				<svg height="200" width="792"><polyline id="linha" points="0,200 66,200 132,200 198,200 264,200 330,200 396,200 462,200 528,200 594,200 660,200 726,200 792,200" style="stroke: #f00; stroke-width:1; fill: none;" /></svg> 
+				<% @categories.each do |c| %>
+					<svg height="200" width="792"><polyline id="linha" points="<%= c.gerar_pontos_receita %>" style="stroke: <%= c.cor %>; stroke-width:2; fill: none;" /></svg>
+				<% end %>
 			</div>
 		</td>
 	</tr>
@@ -18,5 +21,31 @@
 	<tr><td>30%</td></tr>
 	<tr><td>20%</td></tr>
 	<tr><td>10%</td></tr>
-	<tr><td colspan="12"><a href="javascript:gerarPontos();">Progreção em Meses (mais recente para mais antigo)</a></td></tr>
+	<tr><td colspan="12">Progreção em Meses (mais recente para mais antigo)</td></tr>
+</table>
+
+<br/>
+
+<h2>Distribuição das despesas nos ultimos 12 meses</h2>
+<table id="relatorioTab" cellspacing="0px">
+	<tr>
+		<td>100%</td>
+		<td rowspan="10">
+			<div id="relatorio">
+				<% @categories.each do |c| %>
+					<svg height="200" width="792"><polyline id="linha" points="<%= c.gerar_pontos_despesa %>" style="stroke: <%= c.cor %>; stroke-width:2; fill: none;" /></svg>
+				<% end %>
+			</div>
+		</td>
+	</tr>
+	<tr><td>90%</td></tr>
+	<tr><td>80%</td></tr>
+	<tr><td>70%</td></tr>
+	<tr><td>60%</td></tr>
+	<tr><td>50%</td></tr>
+	<tr><td>40%</td></tr>
+	<tr><td>30%</td></tr>
+	<tr><td>20%</td></tr>
+	<tr><td>10%</td></tr>
+	<tr><td colspan="12">Progreção em Meses (mais recente para mais antigo)</td></tr>
 </table>

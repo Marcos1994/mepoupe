@@ -51,9 +51,13 @@ text-align: center;
 
 #relatorio
 {
+position: relative;
 width: 792px;
 height: 200px;
 background: repeating-linear-gradient(90deg, rgba(0, 0, 0, 0) 0px, rgba(0, 0, 0, 0) 65px, rgba(240, 240, 240, 1) 65px, rgba(240, 240, 240, 1) 66px), repeating-linear-gradient(180deg, #eeeeee 0px, #eeeeee 20px, #ffffff 20px, #ffffff 40px);
 border-left: 1px solid black;
 border-bottom: 1px solid black;
 }
+
+#relatorio svg
+{ position: absolute; }

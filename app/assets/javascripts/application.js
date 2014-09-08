@@ -37,18 +37,3 @@ $(document).ready(function()
 		}
 	});
 });
-
-function gerarPontos()
-{
-	var pontos = '';
-	var x = 0;
-	var y = 50;
-	do
-	{
-		pontos += x + ',' + y + ' ';
-		x += 66;
-		if(y < 100) y += 100;
-		else y -= 100;
-	} while(x < 800);
-	$('#linha').attr('points', pontos);
-}
