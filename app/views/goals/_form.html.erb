@@ -13,11 +13,11 @@
 
   <div class="field">
     <p>Meta:<p>
-    <%= f.text_field :titulo , size: 78 %><br>
+    <%= f.text_field :titulo , size: 35 %><br>
   </div>
   <div class="field">
     <p>Descrição da meta:<p>
-    <%= f.text_area :descricao, rows: 10, cols: 80 %><br>
+    <%= f.text_area :descricao, rows: 4, cols: 36 %><br>
   </div>
   <div class="field">
     <p>Data de início:<p>
@@ -37,12 +37,12 @@
   </div>
   <div class="field">
     <p>Objetivo da Meta:<p>
-    <p>R$<%= f.text_field :valor %></p><br>
+    <p>R$ <%= f.text_field :valor %></p><br>
   </div>
   <div class="actions">
-    <br>
+    
     <%= f.submit 'Salvar' , class: "botao isolado"%>
   </div>
 <% end %>
-<br>
-<br>
+
+  

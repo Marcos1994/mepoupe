@@ -44,11 +44,15 @@
 					<ol>
 						<li><%= link_to "Lançamentos do Mês", entries_path, class: "botao" %></li>
 						<li><%= link_to "Mostrar Todos", entry_index_path, class: "botao" %></li>
-						<li><%= link_to "Novo Lançamentos", new_entry_path, class: "botao" %></li>
+						<li><%= link_to "Novo Lançamento", new_entry_path, class: "botao" %></li>
 					</ol>
 				</li>
 				<li>
 					<%= link_to "Metas", goals_path, class: "botao" %>
+					<ol>
+						<li><%= link_to "Nova Meta", new_goal_path, class: "botao" %></li>
+					</ol>
+
 				</li>
 				<li>
 					<%= link_to "Relatórios", report_index_path, class: "botao" %>
