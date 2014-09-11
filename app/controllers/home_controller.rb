@@ -1,4 +1,7 @@
 class HomeController < ApplicationController
+
+	before_action :updateMeta
+
 	def index
 		if (current_user.categories.length < 1)	#O usuário deve ter pelo menos 1 categoria
 			category_params = { "titulo" => "Geral", "cor" => "#aaaaaa", "descricao" => "Essa e a categoria geral do sistema." }
@@ -19,5 +22,10 @@ class HomeController < ApplicationController
 			  format.html { redirect_to home_index_url }
 			  format.json { head :no_content }
 		end
+	end
+
+	def updateMeta
+		current_user.checaMeta
+		
 	end
 end

@@ -20,6 +20,7 @@
 			<% else %>
 				<p id="estadoSaldo" style="color: orange;">Saldo: R$<%= current_user.saldo %></p>
 			<% end %>
+			
 		</div>
 		<%= button_to "Sair", destroy_user_session_path, style: "float: right;", method: :delete %><p style="float: right;">Olá, <%= current_user.email %> </p>
 		

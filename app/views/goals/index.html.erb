@@ -10,30 +10,25 @@
       <th>Inicio</th>
       <th>Fim</th>
       <th>Estado</th>
-      
-      
-      
-      <th colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @goals.each do |goal| %>
       <tr>
-        <td><%= goal.titulo %></td>
+        <td><%= link_to goal.titulo, edit_goal_path(goal) %></td>
         <td class="cor"><div class="corCategoria" style="background-color: <%= goal.category.cor %>;"></div></td>
         <td><%= goal.descricao %></td>
-        <td><%= goal.valor %> </td>
+        <td>R$ <%= goal.valor %> </td>
         <td><%= goal.inicio %></td>
         <td><%= goal.fim %></td>
-        <td><% if goal.estado == 1 %>
-              <p>Meta Ativa<p></td>
-                <%else%>
-                  <p>Meta Inativa<p></td>
+        <td><% if goal.estado == 0 %>
+              <p>Ativa<p></td>
+                <% elsif goal.estado == -1%>
+                  <p>Fechada sem sucesso.<p></td>
+                <% else %>
+                  <p>Fechada com sucesso.</p>
             <%end%>
-          
-        <td><%= link_to 'Editar', edit_goal_path(goal), class: "botao isolado" %>
-        <%= link_to 'Deletar', goal, method: :delete, data: { confirm: 'Tem certeza?' } , class: "botao isolado"%></td>
       </tr>
     <% end %>
   </tbody>

@@ -8,8 +8,8 @@ class Goal < ActiveRecord::Base
 	
 	def default_state_value
 		if self.fim >= Date.today
-			self.estado = 1
-		else self.estado = 0
+			self.estado = 0
+		#else self.estado = 1
 		end
 	end
 

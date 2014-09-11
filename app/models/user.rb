@@ -60,4 +60,22 @@ class User < ActiveRecord::Base
 		end
 		@valor
 	end
+
+	#tipo de saida: inteiro
+	#saida: altera o valor do estado da meta
+	def checaMeta
+		@goals = self.goals
+		@goals.each do |g|
+			self.categories.each do |c|
+				saldo = c.valor_receita_efetivado - c.valor_despesa_efetivado
+				if ((g.fim < Date.today) && (saldo < g.valor))
+					g.estado = -1					
+				elsif ((g.fim < Date.today) && (saldo >= g.valor))  
+					g.estado = 1					
+				end
+			end
+			g.save
+		end
+	end
+
 end

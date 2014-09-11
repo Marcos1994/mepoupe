@@ -28,8 +28,18 @@
 		<tbody>
 		<% @goals.each do |goal| %>
 			<tr>
-				<td><%= goal.titulo %></td>
-				<td><%= goal.contaDias %></td>
+				<td><%= link_to goal.titulo, goal_path(goal) %></td>
+				<td><% if goal.contaDias < 0 %>
+						<% if goal.estado == 0 %>
+              				<p>Ativa<p></td>
+                		<% elsif goal.estado == -1%>
+                  			<p>Fechada sem sucesso.<p></td>
+                		<% else %>
+                  			<p>Fechada com sucesso.</p></td>
+            			<%end%>
+            		<%else%>
+            		<%= goal.contaDias %>
+            		<%end%></td>
 			</tr>
 		<% end %>
 		</tbody>

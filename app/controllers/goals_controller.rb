@@ -28,7 +28,7 @@ class GoalsController < ApplicationController
     @goal = Goal.new(goal_params)
     @goal.user = current_user
 
-    if @goal.fim >= @goal.inicio
+    #if @goal.fim >= @goal.inicio
       respond_to do |format|
         if @goal.save
         format.html { redirect_to @goal, notice: 'Meta criada com sucesso!' }
@@ -38,12 +38,12 @@ class GoalsController < ApplicationController
         format.json { render json: @goal.errors, status: :unprocessable_entity }
         end
       end
-    else respond_to do |format|
-      format.html { render :new , notice: 'Data de inicio precisa ser maior que a data final da meta!'}
+   # else respond_to do |format|
+   #   format.html { render :new , notice: 'Data de inicio precisa ser maior que a data final da meta!'}
       
-      end
+      #end
 
-    end
+    #end
 
   end
 
@@ -79,6 +79,6 @@ class GoalsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def goal_params
-      params.require(:goal).permit(:titulo, :descricao, :inicio, :fim, :estado , :category_id, :user_id)
+      params.require(:goal).permit(:titulo, :descricao, :inicio, :fim, :estado , :valor, :category_id, :user_id)
     end
 end
