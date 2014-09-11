@@ -36,7 +36,7 @@
 		<br/>
 	<% end %>
 	
-	<%= link_to "Voltar", entries_path %> |
+	<%= link_to "Voltar", entries_path	 %> |
 	<%= link_to "Editar", edit_entry_path(@entry) %> |
 	<%= link_to "Deletar", @entry, method: :delete, data: { confirm: "Deseja apagar este lancamento?" } %>
 </div>

@@ -12,21 +12,22 @@
 	<% end %>
 
 	<div class="field">
-		<%= f.label :titulo %><br>
+		<p>Título</p>
+		<%#= f.label :titulo %>
 		<%= f.text_field :titulo, maxlength: "30", placeholder: "Título", required: "required", autofocus: "autofocus" %>
 	</div>
 	
 	<div class="field">
-		<%= f.label :cor %><br>
+		<p>Cor</p>
 		<%= f.color_field :cor %>
 	</div>
 	
 	<div class="field">
-		<%= f.label :descricao %><br>
+		<p>Descrição</p>
 		<%= f.text_area :descricao, cols: "35", rows: "3" %>
 	</div>
 	
 	<div class="actions">
-		<%= f.submit %>
+		<%= f.submit 'Criar categoria', class: 'botao isolado' %>
 	</div>
 <% end %>

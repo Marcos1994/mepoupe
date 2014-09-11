@@ -12,21 +12,24 @@
 	<% end %>
 
 	<div class="field">
-		<%= f.label :valor %><br>
+		<%#= f.label :valor %>
+		<p>Valor</p>
 		<%= f.text_field :valor %>
 	</div>
 	
 	<div class="field">
-		<%= f.label :data %><br>
+		<%#= f.label :data %>
+		<p>Data</p>
 		<%= f.date_select :data %>
 	</div>
 		
 	<div class="field">
-		<%= label_tag :confirmacao %><br/>
+		<%#= label_tag :confirmacao %>
+		<p>Confirmação</p>
 		<%= select_tag :confirmacao, options_for_select([["Efetivado", 1], ["Nao efetivado", 0]]) %>
 	</div>
 	
 	<div class="actions">
-		<%= f.submit %>
+		<%= f.submit 'Salvar', class: 'botao isolado'%>
 	</div>
 <% end %>

@@ -12,16 +12,18 @@
 	<% end %>
 
 	<div class="field">
-		<%= f.label :titulo %><br>
+		<%#= f.label :titulo %>
+		<p>Título</p>
 		<%= f.text_field :titulo %>
 	</div>
 	
 	<div class="field">
-		<%= f.label :descricao %><br>
+		<%#= f.label :descricao %>
+		<p>Descrição</p>
 		<%= f.text_area :descricao %>
 	</div>
 	
 	<div class="actions">
-		<%= f.submit %>
+		<%= f.submit 'Salvar' , class: 'botao isolado' %>
 	</div>
 <% end %>

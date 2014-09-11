@@ -1,6 +1,6 @@
-<h1>Editar lançamento</h1>
+<h1>Editar <%= @goal.titulo %></h1>
 
 <%= render 'form' %>
 
-<%= link_to 'Mostrar', @goal %> |
-<%= link_to 'Voltar', goals_path %>
+<%= link_to 'Mostrar', @goal, class: 'botao isolado' %> 
+<%= link_to 'Voltar', goals_path , class: 'botao isolado' %>

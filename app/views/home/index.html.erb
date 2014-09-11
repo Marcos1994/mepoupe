@@ -16,34 +16,49 @@
 </div>
 
 
-<div id="colunaDireita" style="width: 390px;">
-	<h2>Andamento das metas</h2>
-	<table cellspacing="0px">
-		<thead>
-			<tr>
-				<th>Meta</th>
-				<th>Dias Restantes</th>
-			</tr>
-		</thead>
-		<tbody>
-		<% @goals.each do |goal| %>
-			<tr>
-				<td><%= link_to goal.titulo, goal_path(goal) %></td>
-				<td><% if goal.contaDias < 0 %>
-						<% if goal.estado == 0 %>
+<div id="colunaDireita" style="width: 280px;">
+	<% @goals.each do |goal| %>
+	<% if goal.contaDias > 0 %>
+		<h2>Andamento das metas</h2>
+		<table cellspacing="0px">
+			<thead>
+				<tr>
+					<th>Meta</th>
+					<th>Dias Restantes</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td><%= link_to goal.titulo, goal_path(goal) %></td>
+					<td align:"center"><%= goal.contaDias %>
+            		</td>
+				</tr>
+			</tbody>
+		</table>
+	<%else%>
+	<h2>Metas concluídas</h2>
+		<table cellspacing="0px">
+			<thead>
+				<tr>
+					<th>Meta</th>
+					<th>Status</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td><%= link_to goal.titulo, goal_path(goal) %></td>
+					<td><% if goal.estado == 0 %>
               				<p>Ativa<p></td>
                 		<% elsif goal.estado == -1%>
                   			<p>Fechada sem sucesso.<p></td>
                 		<% else %>
                   			<p>Fechada com sucesso.</p></td>
-            			<%end%>
-            		<%else%>
-            		<%= goal.contaDias %>
-            		<%end%></td>
-			</tr>
-		<% end %>
-		</tbody>
-	</table>
+            			<%end%></td>
+				</tr>
+			</tbody>
+		</table>
+	<%end%>
+	<%end%>
 </div>
 
 

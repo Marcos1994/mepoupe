@@ -12,53 +12,61 @@
 	<% end %>
 
 		<div class="field">
-			<%= label_tag(:titulo, "Titulo") %><br/>
+			<%#= label_tag(:titulo, "Título") %>
+			<p>Título</p>
 			<%= text_field_tag :titulo %>
 		</div>
 		
 		<div class="field">
-			<%= f.label :descricao %><br/>
+			<p>Descrição</p>
 			<%= f.text_area :descricao, cols: "35", rows: "3" %>
 		</div>
 		
 		<div class="field">
-			<%= label_tag(:tipo, "Tipo") %><br/>
+			<%#= label_tag(:tipo, "Tipo") %>
+			<p>Tipo</p>
 			<%= f.select :tipo, ([["Despesa", 0], ["Receita", 1]]) %>
 		</div>
 		
 		<div class="field">
-			<%= label_tag(:titulo, "Categoria") %><br/>
+			<%#= label_tag(:titulo, "Categoria") %>
+			<p>Categoria</p>
 			<%= f.collection_select(:category_id, current_user.categories.order(:titulo) , :id, :titulo , {:prompt => "Selecione a categoria"} ) %>
 		</div>
 		
 		<div class="field">
-			<%= f.label :periodicidade %><br/>
+			<%#= f.label :periodicidade %>
+			<p>Periodicidade</p>
 			<%= f.select  :periodicidade, ([["Avulsa", 0], ["Parcelada", 1], ["Fixa", 2]]) %>
 		</div>
 		
 		<!-------------------------------------------------------------------->
 		
 		<div class="field">
-			<%= label_tag(:valor, "Valor total", id: "valor") %><br/>
+			<%#= label_tag(:valor, "Valor total", id: "valor") %>
+			<p id="valor">Valor Total</p>
 			<%= text_field_tag :valor %>
 		</div>
 		
-		<div id="parcelas_field" class="field>
-			<%= label_tag :parcelas %><br/>
+		<div id="parcelas_field" class="field">
+			<%#= label_tag :parcelas %>
+			<p>Parcelas</p>
 			<%= number_field_tag :parcelas %>
 		</div>
 		
 		<div class="field">
-			<%= label_tag :data %><br/>
+			<%#= label_tag :data %>
+			<p>Data</p>
 			<%= date_select("data", "data", selected: Date.today) %>
 		</div>
 		
 		<div class="field">
-			<%= label_tag :confirmacao %><br/>
+			<%#= label_tag :confirmacao %>
+			<p>Confirmação</p>
 			<%= select_tag :confirmacao, options_for_select([["Efetivado", 1], ["Nao efetivado", 0]]) %>
 		</div>
 		
 		<div>
-			<%= f.submit %>
+			<%= f.submit 'Salvar lançamento', class: 'botao isolado' %>
 		</div>
 <% end %>
