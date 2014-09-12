@@ -60,7 +60,7 @@ border-bottom: 1px solid black;
 }
 
 #relatorio svg
-{ position: absolute; }
+{ position: absolute; left: 0px; }
 
 #reportCategorias
 { width: auto; }
@@ -72,7 +72,7 @@ border-bottom: 1px solid black;
 #reportCategorias td
 {
 background-color: white;
-border-top: 1px #ddd solid;
+border-bottom: 1px #ddd solid;
 }
 #reportCategorias tr:nth-child(1) td
-{ border-top: 0px black solid; }
+{ border-top: 1px #ddd solid; }

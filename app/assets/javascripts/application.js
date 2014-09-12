@@ -36,4 +36,11 @@ $(document).ready(function()
 			$('#parcelas').val("1");
 		}
 	});
+	
+	$('.legendaRelatorio').click(function()
+	{
+		$('.linha').css('opacity', '0.5');
+		$('#despesa' + $(this).attr('id')).css('opacity', '1');
+		$('#receita' + $(this).attr('id')).css('opacity', '1');
+	});
 });
