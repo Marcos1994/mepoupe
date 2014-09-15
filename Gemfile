@@ -42,8 +42,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin]
 
 gem 'devise'
 
-gem 'pg'
-
 ruby "1.9.3"
 
 group :production do 
