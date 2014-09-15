@@ -4,6 +4,9 @@ class Category < ActiveRecord::Base
 	has_many :goals
 	
 	
+	#validadores
+	validates :titulo, :cor, presence: true
+	
 	
 	#tipo da saida:		string
 	#saida: sequencia de 10 pares cartesianos separados por virgulas entre si e espacos entre os outros

@@ -37,7 +37,7 @@
 		<div class="field">
 			<%#= f.label :periodicidade %>
 			<p>Periodicidade</p>
-			<%= f.select  :periodicidade, ([["Avulsa", 0], ["Parcelada", 1], ["Fixa", 2]]) %>
+			<%= f.select  :periodicidade, ([["Avulsa", 0], ["Parcelada", 1], ["Fixa", 2]]), id: "entry_periodicidade" %>
 		</div>
 		
 		<!-------------------------------------------------------------------->
@@ -45,13 +45,13 @@
 		<div class="field">
 			<%#= label_tag(:valor, "Valor total", id: "valor") %>
 			<p id="valor">Valor Total</p>
-			<%= text_field_tag :valor, maxlength: "10", required: "required", pattern: "[0-9]*[.]?[0-9]?[0-9]?", title: "1.99, 50, 37.75" %>
+			<%= text_field_tag :valor %>
 		</div>
 		
 		<div id="parcelas_field" class="field">
 			<%#= label_tag :parcelas %>
 			<p>Parcelas</p>
-			<%= number_field_tag :parcelas, required: "required", pattern: "[0-9]*", title: "1, 12, 10, ..."  %>
+			<%= number_field_tag :parcelas  %>
 		</div>
 		
 		<div class="field">
