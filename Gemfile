@@ -5,7 +5,8 @@ source 'https://rubygems.org'
 gem 'rails', '4.1.4'
 
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+#gem 'sqlite3'
+gem 'pg'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
@@ -42,7 +43,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin]
 
 gem 'devise'
 
-ruby "2.0.0"
+ruby "1.9.3"
 
 group :production do 
 	gem 'pg'
