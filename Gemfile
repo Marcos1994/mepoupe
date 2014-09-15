@@ -40,7 +40,13 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin]
 
 gem 'devise'
 
+gem 'pg'
+
 ruby "1.9.3"
+
+group :production do 
+	gem 'pg'
+end
 
 group :production do
 	gem "rails_12factor"
