@@ -235,6 +235,11 @@ margin-right: 10px;
 	nav ul li:nth-child(5) .botao
 	{ margin-right: 0px; }
 
+nav ul li:nth-child(5) ol li .botao
+{
+margin: 0px auto;
+}
+
 nav ul li ol
 {
 z-index: 100;

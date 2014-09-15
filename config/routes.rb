@@ -17,6 +17,10 @@ Rails.application.routes.draw do
 	
 	get 'entry/index' => 'entries#all'
 	
+	get 'report/despesa' => 'report#despesa'
+	
+	get 'report/receita' => 'report#receita'
+	
 	resources :parts do
 		member do
 			patch 'efetivar'
