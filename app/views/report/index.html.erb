@@ -1,11 +1,11 @@
-<h1>Relatórios</h1>
+<h1 id="paginaRelatorio" class="<%= Date.today %>">Relatórios</h1>
 
 <div id="colunaEsquerda" style="width: 600px;">
 	<h2>Distribuição das receitas nos ultimos 10 meses</h2>
 	<table id="relatorioTab" cellspacing="0px">
 		<tr>
 			<td>100%</td>
-			<td rowspan="10">
+			<td rowspan="10" colspan="9">
 				<div id="relatorio">
 					<% @categories.each do |c| %>
 						<svg height="200" width="540"><polyline class="linha" id="receitaLinha<%= c.id %>" points="<%= c.gerar_pontos_receita %>" style="stroke: <%= c.cor %>; stroke-width:2; fill: none;" /></svg>
@@ -22,7 +22,8 @@
 		<tr><td>30%</td></tr>
 		<tr><td>20%</td></tr>
 		<tr><td>10%</td></tr>
-		<tr><td colspan="2">Progreção em Meses (mais recente para mais antigo)</td></tr>
+		<tr class="meses"></tr>
+		<tr><td colspan="10">Progreção em Meses (mais recente para mais antigo)</td></tr>
 	</table>
 
 	<br/>
@@ -31,7 +32,7 @@
 	<table id="relatorioTab" cellspacing="0px">
 		<tr>
 			<td>100%</td>
-			<td rowspan="10">
+			<td rowspan="10" colspan="9">
 				<div id="relatorio">
 					<% @categories.each do |c| %>
 						<svg height="200" width="540"><polyline class="linha" id="despesaLinha<%= c.id %>" points="<%= c.gerar_pontos_despesa %>" style="stroke: <%= c.cor %>; stroke-width:2; fill: none;" /></svg>
@@ -48,7 +49,8 @@
 		<tr><td>30%</td></tr>
 		<tr><td>20%</td></tr>
 		<tr><td>10%</td></tr>
-		<tr><td colspan="2">Progreção em Meses (mais recente para mais antigo)</td></tr>
+		<tr class="meses"></tr>
+		<tr><td colspan="10">Progreção em Meses (mais recente para mais antigo)</td></tr>
 	</table>
 </div>
 
