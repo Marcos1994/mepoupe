@@ -6,6 +6,26 @@
 {
 }
 
+#cores
+{
+border: 1px solid #eee;
+padding: 5px;
+overflow: hidden;
+/*width: 70px;
+height: 30px;*/
+max-width: 270px;
+}
+#cores td
+{
+background-color: #fff;
+width: 40px;
+height: 20px;
+}
+#cores input
+{
+float: right;
+}
+
 #tabelaCategoria thread *
 {
 text-align: center;

@@ -14,7 +14,7 @@
 	<div class="field">
 		<%#= f.label :valor %>
 		<p>Valor</p>
-		<%= f.text_field :valor %>
+		<%= f.text_field :valor, required: "required", autofocus: "autofocus", pattern: "[0-9]*[.]?[0-9]?[0-9]?", title: "1.99" %>
 	</div>
 	
 	<div class="field">

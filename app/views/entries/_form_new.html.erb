@@ -45,13 +45,13 @@
 		<div class="field">
 			<%#= label_tag(:valor, "Valor total", id: "valor") %>
 			<p id="valor">Valor Total</p>
-			<%= text_field_tag :valor %>
+			<%= text_field_tag :valor, maxlength: "10", required: "required", pattern: "[0-9]*[.]?[0-9]?[0-9]?", title: "1.99, 50, 37.75" %>
 		</div>
 		
 		<div id="parcelas_field" class="field">
 			<%#= label_tag :parcelas %>
 			<p>Parcelas</p>
-			<%= number_field_tag :parcelas %>
+			<%= number_field_tag :parcelas, required: "required", pattern: "[0-9]*", title: "1, 12, 10, ..."  %>
 		</div>
 		
 		<div class="field">

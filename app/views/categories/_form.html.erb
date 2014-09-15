@@ -19,7 +19,69 @@
 	
 	<div class="field">
 		<p>Cor</p>
-		<%= f.color_field :cor %>
+		<div id="cores">
+			<table>
+				<tr>
+					<td><%= f.radio_button :cor, "#000000", :checked => true %></td>
+					<td><div class="corCategoria" style="background-color: #000000;"></div></td>
+					<td><%= f.radio_button :cor, "#444444" %></td>
+					<td><div class="corCategoria" style="background-color: #444444;"></div></td>
+					<td><%= f.radio_button :cor, "#888888" %></td>
+					<td><div class="corCategoria" style="background-color: #888888;"></div></td>
+				</tr>
+				
+				
+				</tr>
+				<tr>
+					<td><%= f.radio_button :cor, "#003399" %></td>
+					<td><div class="corCategoria" style="background-color: #003399;"></div></td>
+					<td><%= f.radio_button :cor, "#0066FF" %></td>
+					<td><div class="corCategoria" style="background-color: #0066FF;"></div></td>
+					<td><%= f.radio_button :cor, "#00CCFF" %></td>
+					<td><div class="corCategoria" style="background-color: #00CCFF;"></div></td>
+				</tr>
+				
+				
+				<tr>
+					<td><%= f.radio_button :cor, "#00CC00" %></td>
+					<td><div class="corCategoria" style="background-color: #00CC00;"></div></td>
+					<td><%= f.radio_button :cor, "#009900" %></td>
+					<td><div class="corCategoria" style="background-color: #009900;"></div></td>
+					<td><%= f.radio_button :cor, "#47D147" %></td>
+					<td><div class="corCategoria" style="background-color: #47D147;"></div></td>
+				</tr>
+				
+				
+				<tr>
+					<td><%= f.radio_button :cor, "#CC0000" %></td>
+					<td><div class="corCategoria" style="background-color: #CC0000;"></div></td>
+					<td><%= f.radio_button :cor, "#CC3300" %></td>
+					<td><div class="corCategoria" style="background-color: #CC3300;"></div></td>
+					<td><%= f.radio_button :cor, "#FF6666" %></td>
+					<td><div class="corCategoria" style="background-color: #FF6666;"></div></td>
+				</tr>
+				
+				
+				<tr>
+					<td><%= f.radio_button :cor, "#CC9900" %></td>
+					<td><div class="corCategoria" style="background-color: #CC9900;"></div></td>
+					<td><%= f.radio_button :cor, "#FFCC00" %></td>
+					<td><div class="corCategoria" style="background-color: #FFCC00;"></div></td>
+					<td><%= f.radio_button :cor, "#FFFF66" %></td>
+					<td><div class="corCategoria" style="background-color: #FFFF66;"></div></td>
+				</tr>
+				
+				
+				<tr>
+					<td><%= f.radio_button :cor, "#9900CC" %></td>
+					<td><div class="corCategoria" style="background-color: #9900CC;"></div></td>
+					<td><%= f.radio_button :cor, "#FF00FF" %></td>
+					<td><div class="corCategoria" style="background-color: #FF00FF;"></div></td>
+					<td><%= f.radio_button :cor, "#FF99FF" %></td>
+					<td><div class="corCategoria" style="background-color: #FF99FF;"></div></td>
+				</tr>
+			</table>
+		</div>
 	</div>
 	
 	<div class="field">
