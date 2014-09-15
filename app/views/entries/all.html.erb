@@ -42,7 +42,7 @@
 						<% end %>
 					<% end %>
 				</td>
-				<td style="text-align: center;"><%= entry.parts[0].data %></td>
+				<td style="text-align: center;"><% if(entry != nil) %><%= entry.parts[0].data %> <% end %></td>
 			</tr>
 		<% end %>
 	</tbody>
