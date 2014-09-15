@@ -1,0 +1,41 @@
+<h1 id="paginaRelatorio" class="<%= Date.today %>">Relatório de Receita</h1>
+
+<div id="colunaEsquerda" style="width: 600px;">
+	<h2>Distribuição das receitas nos ultimos 10 meses</h2>
+	<table id="relatorioTab" cellspacing="0px">
+		<tr>
+			<td>100%</td>
+			<td rowspan="10" colspan="9">
+				<div id="relatorio">
+					<% @categories.each do |c| %>
+						<svg height="200" width="540"><polyline class="linha" id="receitaLinha<%= c.id %>" points="<%= c.gerar_pontos_receita %>" style="stroke: <%= c.cor %>; stroke-width:2; fill: none;" /></svg>
+					<% end %>
+				</div>
+			</td>
+		</tr>
+		<tr><td>90%</td></tr>
+		<tr><td>80%</td></tr>
+		<tr><td>70%</td></tr>
+		<tr><td>60%</td></tr>
+		<tr><td>50%</td></tr>
+		<tr><td>40%</td></tr>
+		<tr><td>30%</td></tr>
+		<tr><td>20%</td></tr>
+		<tr><td>10%</td></tr>
+		<tr class="meses"></tr>
+		<tr><td colspan="10">Progreção em Meses (mais recente para mais antigo)</td></tr>
+	</table>
+</div>
+
+<div id="colunaDireita" style="width: 288px; border: 1px solid #ddd; padding-top: 5px; padding-bottom: 5px;">
+<h2>Categorias</h2>
+	<table id="reportCategorias" cellspacing="0px">
+		<% @categories.each do |c| %>
+			<tr>
+				<td class="cor legendaRelatorio" id="Linha<%= c.id %>"><div class="corCategoria" style="background-color: <%= c.cor %>;"></div></td>
+				<td class="titulo"><%= link_to c.titulo, c %></td>
+			</tr>
+		<% end %>
+	</table>
+	Clique na cor da categoria para dar destaque.
+</div>

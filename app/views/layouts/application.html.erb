@@ -20,7 +20,6 @@
 			<% else %>
 				<p id="estadoSaldo" style="color: orange;">Saldo: R$<%= current_user.saldo %></p>
 			<% end %>
-			
 		</div>
 		<%= button_to "Sair", destroy_user_session_path, style: "float: right;", method: :delete %><p style="float: right;">Olá, <%= current_user.email %> </p>
 		
@@ -56,6 +55,10 @@
 				</li>
 				<li>
 					<%= link_to "Relatórios", report_index_path, class: "botao" %>
+					<ol>
+						<li><%= link_to "Despesa", report_despesa_path, class: "botao" %></li>
+						<li><%= link_to "Receita", report_receita_path, class: "botao" %></li>
+					</ol>
 				</li>
 			</ul>
 		</nav>
