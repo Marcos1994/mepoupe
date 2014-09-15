@@ -1,7 +1,6 @@
 //show de Lançamentos
 $('#renderParts').html('<%= escape_javascript render(@entry.parts) %>');
 $('#entryAndPartHome').html('<%= escape_javascript render partial: "home/entry_and_part" %>');
-$('#entryAndPartCategory').html('<%= escape_javascript (render partial: "categories/entry_and_part", collection: @category) if @category != nil %>');
 $('.valorPago').css('width', '<%= @entry.valor_razao_efetivado %>px');
 $('#valorEfetivado').html('<%= @entry.valor_efetivado %>');
 

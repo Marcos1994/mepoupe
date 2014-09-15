@@ -10,13 +10,11 @@
 			</td>
 			<td><%= link_to truncate(strip_tags(e.titulo), length: 30), e %> </td>
 			<td class="valor">R$ <%= p.entry.valor %></td>
-			<td>
-				<% if (p.confirmacao != 1) %>
-					<%= button_to "Efetivar!", efetivar_part_path(p), method: :patch, remote: true %>
-				<% else %>
-					Efetivado
-				<% end %>
-			</td>
+			<% if (p.confirmacao != 1) %>
+				<td style="color: red;">Pendente</td>
+			<% else %>
+				<td style="color: green;">Efetivado</td>
+			<% end %>
 		</tr>
 	<% end %>
 <% end %>

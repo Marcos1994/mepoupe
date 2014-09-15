@@ -54,6 +54,7 @@ class PartsController < ApplicationController
   
 	def efetivar
 		@part = Part.find(params[:id])
+		@category = @part.entry.category
 		@entry = @part.entry
 		@part.confirmacao = 1
 		respond_to do |format|

@@ -16,9 +16,14 @@
 			<div class="valorPago" style="width: <%= @entry.valor_razao_efetivado %>px; background-color: <%= @entry.category.cor %>;"></div>
 		</div>
 	</p>
-
+	<br/>
+	
 	<p>
-		<strong>Periodicidade:<br/></strong>
+		<strong>Categoria:</strong> <%= link_to @entry.category.titulo, @entry.category %>
+	</p>
+	<br/>
+	<p>
+		<strong>Periodicidade:</strong> 
 		<% if (@entry.periodicidade == 0) %>
 			Avulsa
 		<% elsif (@entry.periodicidade == 1) %>
@@ -27,8 +32,11 @@
 			Fixa
 		<% end %>
 	</p>
-	
-	<p><%= @entry.descricao %></p>
+	<br/>
+	<p>
+		<strong>Descricao:</strong>
+		<%= @entry.descricao %>
+	</p>
 
 	<br/>
 	<% if(@entry.periodicidade == 2) %>
