@@ -18,26 +18,17 @@
 
 $(document).ready(function()
 {
-	var relatorio = $('#paginaRelatorio').attr('class').toString();
-	if(relatorio != "undefined") preencherMeses(relatorio);
+	var relatorio = $('#paginaRelatorio').attr('class');
+	if(relatorio != null) preencherMeses(relatorio);
+	
+	var periodicidade = $('#entry_periodicidade').val()
+	if(periodicidade == 1)
+		trocarPeriodicidade(1);
 	
 	$('#entry_periodicidade').blur(function()
 	{
 		var val = $('#entry_periodicidade').val();
-		if(val == 1)
-		{
-			$('#valor').html("Valor da parcela");
-			$('#parcelas_field').css('height', '45px');
-			$('#parcelas_field').css('opacity', '1');
-			$('#parcelas').val("1");
-		}
-		else
-		{
-			$('#valor').html("Valor total");
-			$('#parcelas_field').css('height', '0px');
-			$('#parcelas_field').css('opacity', '0');
-			$('#parcelas').val("1");
-		}
+		trocarPeriodicidade(val);
 	});
 	
 	$('.legendaRelatorio').click(function()
@@ -47,6 +38,25 @@ $(document).ready(function()
 		$('#receita' + $(this).attr('id')).css('opacity', '1');
 	});
 });
+
+
+function trocarPeriodicidade(val)
+{
+	if(val == 1)
+	{
+		$('#valor').html("Valor da parcela");
+		$('#parcelas_field').css('height', '45px');
+		$('#parcelas_field').css('opacity', '1');
+		$('#parcelas').val("1");
+	}
+	else
+	{
+		$('#valor').html("Valor total");
+		$('#parcelas_field').css('height', '0px');
+		$('#parcelas_field').css('opacity', '0');
+		$('#parcelas').val("1");
+	}
+}
 
 
 function preencherMeses(relatorio)

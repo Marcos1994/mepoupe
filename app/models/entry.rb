@@ -2,6 +2,11 @@ class Entry < ActiveRecord::Base
 	has_many :parts, dependent: :destroy, autosave: true
 	belongs_to :category
 	
+	
+	#validadores
+	validates :titulo, :tipo, :periodicidade, :category_id, presence: true
+	
+	
 	#tipo da entrada:	Date
 	#tipo da saida:		Part[]
 	#saida: colecao de parcelas deste lancamento na data "data"

@@ -37,7 +37,7 @@
 		<div class="field">
 			<%#= f.label :periodicidade %>
 			<p>Periodicidade</p>
-			<%= f.select  :periodicidade, ([["Avulsa", 0], ["Parcelada", 1], ["Fixa", 2]]) %>
+			<%= f.select  :periodicidade, ([["Avulsa", 0], ["Parcelada", 1], ["Fixa", 2]]), id: "entry_periodicidade" %>
 		</div>
 		
 		<!-------------------------------------------------------------------->
@@ -51,7 +51,7 @@
 		<div id="parcelas_field" class="field">
 			<%#= label_tag :parcelas %>
 			<p>Parcelas</p>
-			<%= number_field_tag :parcelas %>
+			<%= number_field_tag :parcelas  %>
 		</div>
 		
 		<div class="field">

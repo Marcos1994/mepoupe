@@ -14,13 +14,13 @@
 	<div class="field">
 		<%#= f.label :titulo %>
 		<p>Título</p>
-		<%= f.text_field :titulo %>
+		<%= f.text_field :titulo, maxlength: "30", placeholder: "Título", required: "required", autofocus: "autofocus" %>
 	</div>
 	
 	<div class="field">
 		<%#= f.label :descricao %>
 		<p>Descrição</p>
-		<%= f.text_area :descricao %>
+		<%= f.text_area :descricao, maxlength: "30", placeholder: "descrição"%>
 	</div>
 	
 	<div class="actions">
