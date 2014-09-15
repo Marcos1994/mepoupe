@@ -42,7 +42,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin]
 
 gem 'devise'
 
-ruby "1.9.3"
+ruby "2.0.0"
 
 group :production do 
 	gem 'pg'
