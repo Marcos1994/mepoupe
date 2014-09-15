@@ -1,0 +1,658 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+
+
+ */
+
+
+*
+{
+margin: 0px;
+padding: 0px;
+font-family: "Corbel", "Consolas", "Arial";
+}
+
+header, article
+{
+position: relative;
+clear: both;
+margin: 0px auto;
+width: 900px;
+padding: 25px;
+}
+
+h1, h2, h3
+{
+color: rgb(76, 77, 78);
+font-family: "Corbel", "Consolas", "Broadway", "Bernard MT", "Arial";
+}
+
+textarea
+{
+resize: none;
+}
+
+table
+{
+width: 100%;
+z-index: 10;
+}
+
+table th, table td
+{
+padding: 5px;
+z-index: 11;
+}
+
+.valorReceita { color: green }
+.valorDespesa { color: red }
+
+.corCategoria
+{
+width: 30px;
+height: 12px;
+border: 1px #999 solid;
+margin: 0px auto;
+}
+
+.sublinhado
+{
+display: block;
+border-bottom: 1px solid #ccc;
+padding-bottom: 2px;
+}
+
+/*--- Botoes ---*/
+.botao
+{
+display: inline;
+text-decoration: none;
+color: #fff;
+background-color: rgb(77, 137, 193);
+border: 1px solid rgb(77, 137, 193);
+font-weight: bold;
+
+-webkit-transition-property: *;
+-webkit-transition-duration: 300ms;
+-webkit-transition-timing-function: ease-in;
+-webkit-transition-delay: 0ms;
+
+-moz-transition-property: *;
+-moz-transition-duration: 300ms;
+-moz-transition-timing-function: ease-in;
+-moz-transition-delay: 0ms;
+
+-o-transition-property: *;
+-o-transition-duration: 300ms;
+-o-transition-timing-function: ease-in;
+-o-transition-delay: 0ms;
+
+transition-property: *;
+transition-duration: 300ms;
+transition-timing-function: ease-in;
+transition-delay: 0ms;
+}
+	.botao:hover
+	{
+	background-color: #fff;
+	border-radius: 8px;
+	color: rgb(77, 137, 193);
+
+	-webkit-transition-property: *;
+	-webkit-transition-duration: 100ms;
+	-webkit-transition-timing-function: ease-in;
+	-webkit-transition-delay: 0ms;
+
+	-moz-transition-property: *;
+	-moz-transition-duration: 100ms;
+	-moz-transition-timing-function: ease-in;
+	-moz-transition-delay: 0ms;
+
+	-o-transition-property: *;
+	-o-transition-duration: 100ms;
+	-o-transition-timing-function: ease-in;
+	-o-transition-delay: 0ms;
+
+	transition-property: *;
+	transition-duration: 100ms;
+	transition-timing-function: ease-in;
+	transition-delay: 0ms;
+	}
+
+.isolado
+{
+border-radius: 8px;
+padding: 5px 8px 5px 8px;
+display: line;
+text-align:center;
+color: #fff;
+border: 1px rgb(77, 137, 193) solid;
+background-color: rgb(77, 137, 193);
+margin-top: 10px;
+clear: both;
+float: left;
+box-shadow: 2px 2px 3px #ccc;
+}
+	.isolado:hover
+	{
+	color: rgb(77, 137, 193);
+	background-color: #fff;
+	}
+
+.vertical
+{
+text-align: center;
+}
+
+#esquerda
+{
+float: left;
+padding-right: 5px;
+width: 395px;
+}
+
+#direita
+{
+float: right;
+padding-left: 5px;
+width: 495px;
+}
+
+/*--- Cabecalho ---*/
+
+header
+{
+height: 120px;
+padding-top: 5px;
+padding-bottom: 20px;
+}
+
+header h1
+{
+font-size: 50px;
+float: left;
+}
+
+header p
+{ float: right; }
+
+header img
+{ float: left; }
+
+
+#sair
+{
+float: right;
+font-weight: bold;
+}
+
+.sair
+{
+color: background-color: rgb(52, 52, 52);
+padding: 5px;
+text-decoration: none;
+}
+	#sair a:hover
+	{
+	text-decoration: underline;
+	}
+
+/*--- Menu ---*/
+nav
+{
+position: absolute;
+top: 105px;
+z-index: 100;
+}
+
+nav ul, nav ol
+{
+list-style: none;
+}
+
+nav ul li
+{
+float: left;
+}
+
+nav ul li .botao
+{
+display: block;
+width: 150px;
+text-align: center;
+padding: 10px;
+font-size: 15px;
+font-weight: bold;
+margin-right: 10px;
+}
+	nav ul li:nth-child(5) .botao
+	{ margin-right: 0px; }
+
+nav ul li:nth-child(5) ol li .botao
+{
+margin: 0px auto;
+}
+
+nav ul li ol
+{
+z-index: 100;
+height: 0px;
+overflow: hidden;
+background-color: rgba(204, 204, 204, 0.4);
+border-radius: 5px 5px 5px 5px;
+width: 172px;
+}
+	nav ul li:hover ol
+	{ height: auto; }
+	nav ul li ol:hover
+	{ border-radius: 0px 0px 8px 8px; }
+
+nav ul li ol .botao
+{
+width: 120px;
+margin: 0px auto;
+padding-top: 5px;
+padding-bottom: 5px;
+background-color: #fff;
+color: rgb(77, 137, 193);
+}
+	nav ul li ol .botao:hover
+	{
+	border-radius: 0px;
+	padding-left: 17px;
+	padding-right: 18px;
+	}
+
+nav ul li ol li
+{
+width: 160px;
+/*border: 5px rgba(100,0,0,1) solid;*/
+margin: 0px auto;
+margin-bottom: 10px;
+float: none;
+}
+	nav ul li ol li:nth-child(1)
+	{ margin-top: 10px; }
+
+
+/*--- Corpo ---*/
+article
+{
+/*background-color: #F1EDEA;*/
+padding-bottom: 30px;
+}
+
+article h2, article h3
+{
+color: rgb(77, 137, 193);
+}
+
+article h1
+{
+margin-bottom: 20px;
+}
+
+article thead, article tfoot tr
+{
+color: #fff;
+background-color: rgb(77, 137, 193);
+}
+
+article tbody tr
+{
+background-color: #e0e0e0;
+}
+article tbody tr:nth-child(odd)
+{
+background-color: #f0f0f0;
+}
+
+
+
+/* ---- Saldo ---- */
+
+#saldo
+{
+position: absolute;
+width: 200px;
+height: 50px;
+right: 25px;
+top: 35px;
+text-align: right;
+}
+
+
+
+/* ---- Auxiliares ---- */
+
+
+#colunaDireita
+{
+width: 495px;
+padding-left: 5px;
+float: right;
+}
+
+#colunaEsquerda
+{
+width: 395px;
+padding-right: 5px;
+float: left;
+}
+/* line 10, /home/deck/Documentos/WebProjects/Rails/mepoupe/app/assets/stylesheets/categories.css.scss */
+#tabelaCategoria thread * {
+  text-align: center;
+}
+
+/* line 15, /home/deck/Documentos/WebProjects/Rails/mepoupe/app/assets/stylesheets/categories.css.scss */
+#tabelaCategoria .titulo {
+  width: 190px;
+  font-weight: bold;
+}
+
+/* line 21, /home/deck/Documentos/WebProjects/Rails/mepoupe/app/assets/stylesheets/categories.css.scss */
+#tabelaCategoria .cor {
+  width: 40px;
+}
+
+/* line 26, /home/deck/Documentos/WebProjects/Rails/mepoupe/app/assets/stylesheets/categories.css.scss */
+#tabelaCategoria .descricao {
+  text-align: left;
+}
+
+/* line 31, /home/deck/Documentos/WebProjects/Rails/mepoupe/app/assets/stylesheets/categories.css.scss */
+#tabelaCategoria .gerenciamento {
+  text-align: center;
+}
+
+/* line 36, /home/deck/Documentos/WebProjects/Rails/mepoupe/app/assets/stylesheets/categories.css.scss */
+#tabelaCategoria .gerenciamento a {
+  margin: 5px;
+  font-weight: bold;
+  padding: 2px;
+  border-radius: 4px;
+  text-decoration: none;
+}
+/* line 6, /home/deck/Documentos/WebProjects/Rails/mepoupe/app/assets/stylesheets/entries.css.scss */
+#parcelas_field {
+  display: block;
+  overflow: hidden;
+  height: 0px;
+  opacity: 0;
+  -webkit-transition-property: opacity, height;
+  -webkit-transition-duration: 300ms;
+  -webkit-transition-timing-function: ease-in;
+  -webkit-transition-delay: 0ms;
+  -moz-transition-property: opacity, height;
+  -moz-transition-duration: 300ms;
+  -moz-transition-timing-function: ease-in;
+  -moz-transition-delay: 0ms;
+  -o-transition-property: opacity, height;
+  -o-transition-duration: 300ms;
+  -o-transition-timing-function: ease-in;
+  -o-transition-delay: 0ms;
+  transition-property: opacity, height;
+  transition-duration: 300ms;
+  transition-timing-function: ease-in;
+  transition-delay: 0ms;
+}
+
+/* line 34, /home/deck/Documentos/WebProjects/Rails/mepoupe/app/assets/stylesheets/entries.css.scss */
+#tabelaLancamento #tipo {
+  width: 35px;
+}
+
+/* line 38, /home/deck/Documentos/WebProjects/Rails/mepoupe/app/assets/stylesheets/entries.css.scss */
+#tabelaLancamento #cat {
+  width: 70px;
+}
+
+/* line 42, /home/deck/Documentos/WebProjects/Rails/mepoupe/app/assets/stylesheets/entries.css.scss */
+#tabelaLancamento #titulo {
+  width: 250px;
+}
+
+/* line 46, /home/deck/Documentos/WebProjects/Rails/mepoupe/app/assets/stylesheets/entries.css.scss */
+#tabelaLancamento #period {
+  width: 100px;
+}
+
+/* line 51, /home/deck/Documentos/WebProjects/Rails/mepoupe/app/assets/stylesheets/entries.css.scss */
+#tabelaLancamento .data {
+  text-align: center;
+  width: 80px;
+}
+
+/* line 57, /home/deck/Documentos/WebProjects/Rails/mepoupe/app/assets/stylesheets/entries.css.scss */
+.valorBarra {
+  background: repeating-linear-gradient(-45deg, #cccccc 0px, #cccccc 1px, white 1px, white 6px);
+  border: 1px solid #ccc;
+  width: 100px;
+  height: 10px;
+  background-color: white;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+/* line 68, /home/deck/Documentos/WebProjects/Rails/mepoupe/app/assets/stylesheets/entries.css.scss */
+.valorBarra .valorPago {
+  height: 10px;
+  float: left;
+  -webkit-transition-property: width;
+  -webkit-transition-duration: 500ms;
+  -webkit-transition-timing-function: ease-in;
+  -webkit-transition-delay: 0ms;
+  -moz-transition-property: width;
+  -moz-transition-duration: 500ms;
+  -moz-transition-timing-function: ease-in;
+  -moz-transition-delay: 0ms;
+  -o-transition-property: width;
+  -o-transition-duration: 500ms;
+  -o-transition-timing-function: ease-in;
+  -o-transition-delay: 0ms;
+  transition-property: width;
+  transition-duration: 500ms;
+  transition-timing-function: ease-in;
+  transition-delay: 0ms;
+}
+
+/* line 95, /home/deck/Documentos/WebProjects/Rails/mepoupe/app/assets/stylesheets/entries.css.scss */
+.receita, .despesa {
+  width: 0px;
+  height: 0px;
+  border: 8px black solid;
+  border-opacity: 0;
+  overflow: hidden;
+  margin: 0px auto;
+  float: left;
+  margin-top: 5px;
+}
+
+/* line 107, /home/deck/Documentos/WebProjects/Rails/mepoupe/app/assets/stylesheets/entries.css.scss */
+.receita {
+  border-color: transparent transparent green transparent;
+  border-top: 0px;
+  border-bottom: 13px #6cc644 solid;
+}
+
+/* line 114, /home/deck/Documentos/WebProjects/Rails/mepoupe/app/assets/stylesheets/entries.css.scss */
+.despesa {
+  border-color: red transparent transparent transparent;
+  border-bottom: 0px;
+  border-top: 13px #d7431b solid;
+}
+/* line 6, /home/deck/Documentos/WebProjects/Rails/mepoupe/app/assets/stylesheets/login.css.scss */
+#login {
+  width: 300px;
+  border-radius: 10px;
+  border: 1px solid #4d89c1;
+  padding-top: 15px;
+  padding-bottom: 20px;
+  background-color: #eee;
+  text-align: center;
+  margin: 0px auto;
+  box-shadow: 3px 3px 5px #ccc;
+}
+/* line 7, /home/deck/Documentos/WebProjects/Rails/mepoupe/app/assets/stylesheets/report.css.scss */
+.razaoTotal {
+  width: 100px;
+  margin: 0px auto;
+  height: 10px;
+  border: 1px solid #999;
+  background: repeating-linear-gradient(135deg, white 0px, white 3px, #eeeeee 3px, #eeeeee 5px);
+}
+
+/* line 16, /home/deck/Documentos/WebProjects/Rails/mepoupe/app/assets/stylesheets/report.css.scss */
+.razaoCategoria {
+  float: left;
+  height: 10px;
+}
+
+/* line 22, /home/deck/Documentos/WebProjects/Rails/mepoupe/app/assets/stylesheets/report.css.scss */
+tfoot .razaoTotal {
+  width: 250px;
+}
+
+/* line 27, /home/deck/Documentos/WebProjects/Rails/mepoupe/app/assets/stylesheets/report.css.scss */
+.valor {
+  width: 110px;
+}
+
+/* line 32, /home/deck/Documentos/WebProjects/Rails/mepoupe/app/assets/stylesheets/report.css.scss */
+.porcentagem {
+  width: 40px;
+}
+
+/* line 37, /home/deck/Documentos/WebProjects/Rails/mepoupe/app/assets/stylesheets/report.css.scss */
+.barra {
+  width: 110px;
+}
+
+/* line 42, /home/deck/Documentos/WebProjects/Rails/mepoupe/app/assets/stylesheets/report.css.scss */
+#relatorioTab {
+  width: auto;
+  margin: 0px auto;
+}
+
+/* line 45, /home/deck/Documentos/WebProjects/Rails/mepoupe/app/assets/stylesheets/report.css.scss */
+#relatorioTab td {
+  font-size: 10px;
+  height: 10px;
+  padding: 0px;
+  text-align: center;
+}
+
+/* line 53, /home/deck/Documentos/WebProjects/Rails/mepoupe/app/assets/stylesheets/report.css.scss */
+#relatorio {
+  position: relative;
+  width: 540px;
+  height: 200px;
+  background: repeating-linear-gradient(90deg, rgba(0, 0, 0, 0) 0px, rgba(0, 0, 0, 0) 59px, #f0f0f0 59px, #f0f0f0 60px), repeating-linear-gradient(180deg, #eeeeee 0px, #eeeeee 20px, white 20px, white 40px);
+  border-left: 1px solid black;
+  border-bottom: 1px solid black;
+}
+
+/* line 63, /home/deck/Documentos/WebProjects/Rails/mepoupe/app/assets/stylesheets/report.css.scss */
+#relatorio svg {
+  position: absolute;
+  left: 0px;
+}
+
+/* line 66, /home/deck/Documentos/WebProjects/Rails/mepoupe/app/assets/stylesheets/report.css.scss */
+#reportCategorias {
+  width: auto;
+}
+
+/* line 68, /home/deck/Documentos/WebProjects/Rails/mepoupe/app/assets/stylesheets/report.css.scss */
+#reportCategorias .titulo {
+  width: 210px;
+}
+
+/* line 70, /home/deck/Documentos/WebProjects/Rails/mepoupe/app/assets/stylesheets/report.css.scss */
+#reportCategorias .cor {
+  width: 50px;
+}
+
+/* line 73, /home/deck/Documentos/WebProjects/Rails/mepoupe/app/assets/stylesheets/report.css.scss */
+#reportCategorias td {
+  background-color: white;
+  border-bottom: 1px #ddd solid;
+}
+
+/* line 78, /home/deck/Documentos/WebProjects/Rails/mepoupe/app/assets/stylesheets/report.css.scss */
+#reportCategorias tr:nth-child(1) td {
+  border-top: 1px #ddd solid;
+}
+/* line 1, /home/deck/Documentos/WebProjects/Rails/mepoupe/app/assets/stylesheets/scaffolds.css.scss */
+p, ol, ul, td {
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+/* line 7, /home/deck/Documentos/WebProjects/Rails/mepoupe/app/assets/stylesheets/scaffolds.css.scss */
+pre {
+  background-color: #eee;
+  padding: 10px;
+  font-size: 11px;
+}
+
+/* line 16, /home/deck/Documentos/WebProjects/Rails/mepoupe/app/assets/stylesheets/scaffolds.css.scss */
+div.field, div.actions {
+  margin-bottom: 10px;
+}
+
+/* line 21, /home/deck/Documentos/WebProjects/Rails/mepoupe/app/assets/stylesheets/scaffolds.css.scss */
+#notice {
+  color: green;
+  font-size: 1.4em;
+  padding: 7px;
+}
+
+/* line 28, /home/deck/Documentos/WebProjects/Rails/mepoupe/app/assets/stylesheets/scaffolds.css.scss */
+#noticeErro {
+  color: red;
+  font-size: 1.3em;
+  padding: 7px;
+}
+
+/* line 35, /home/deck/Documentos/WebProjects/Rails/mepoupe/app/assets/stylesheets/scaffolds.css.scss */
+.field_with_errors {
+  padding: 2px;
+  background-color: red;
+  display: table;
+}
+
+/* line 41, /home/deck/Documentos/WebProjects/Rails/mepoupe/app/assets/stylesheets/scaffolds.css.scss */
+#error_explanation {
+  width: 450px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 0;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+}
+/* line 48, /home/deck/Documentos/WebProjects/Rails/mepoupe/app/assets/stylesheets/scaffolds.css.scss */
+#error_explanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: -7px;
+  margin-bottom: 0px;
+  background-color: #c00;
+  color: #fff;
+}
+/* line 58, /home/deck/Documentos/WebProjects/Rails/mepoupe/app/assets/stylesheets/scaffolds.css.scss */
+#error_explanation ul li {
+  font-size: 12px;
+  list-style: square;
+}
